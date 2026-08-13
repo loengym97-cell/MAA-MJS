@@ -1,0 +1,292 @@
+{
+ "interface_version": 2,
+ "name": "MaaFramework 图像识别自动化学习实践版",
+ "title": "MaaFramework 图像识别自动化学习实践版",
+ "label": "MaaFramework 图像识别自动化学习实践版",
+ "description": "基于 MaaFramework 图像识别框架的自动化学习项目：模板匹配、OCR 文字识别、坐标点击与流程状态机控制。以名将杀千里走单骑为实践对象，仅用于学习交流。",
+ "contact": "有问题请自行求助AI（详见公告）",
+ "license": "MIT",
+ "welcome": "./resource/announcement/公告副栏.md",
+ "github": "https://github.com/MaaXYZ/MaaFramework",
+ "version": "v1.1.0",
+ "mirrorchyan_rid": "Maa_mjs_ace",
+ "mirrorchyan_multiplatform": true,
+ "controller": [
+  {
+   "name": "安卓端",
+   "type": "Adb",
+   "display_short_side": 720
+  },
+  {
+   "name": "桌面端",
+   "type": "Win32",
+   "win32": {
+    "class_regex": ".*",
+    "window_regex": "Visual Studio",
+    "screencap": "PrintWindow",
+    "mouse": "PostMessageWithCursorPos",
+    "keyboard": "PostMessageWithCursorPos"
+   }
+  }
+ ],
+ "resource": [
+  {
+   "name": "官服",
+   "path": [
+    "./resource"
+   ]
+  }
+ ],
+ "option": {
+  "选将": {
+   "type": "input",
+   "label": "选择武将",
+   "description": "选将阶段自动选择的武将",
+   "inputs": [
+    {
+     "name": "选将",
+     "label": "默认吕布（速度快），填入的武将必须在选将的第一页",
+     "default": "吕布",
+     "pipeline_type": "string"
+    }
+   ],
+   "pipeline_override": {
+    "自定义选将": {
+     "recognition": "OCR",
+     "roi": [
+      100,
+      506,
+      1107,
+      173
+     ],
+     "expected": "{选将}"
+    }
+   }
+  },
+  "赠礼配置": {
+   "type": "input",
+   "label": "赠礼武将配置",
+   "description": "配置必拿信物和驰援武将列表",
+   "inputs": [
+    {
+     "name": "cat1_list",
+     "label": "信物武将（英文逗号分隔）",
+     "default": "马超,吕布,关羽,张春华,司马懿,孙策",
+     "pipeline_type": "string"
+    },
+    {
+     "name": "cat2_list",
+     "label": "驰援武将（英文逗号分隔）",
+     "default": "刘禅,萧何,马超,曹丕,周勃",
+     "pipeline_type": "string"
+    }
+   ],
+   "pipeline_override": {
+    "动态选择赠礼": {
+     "action": {
+      "type": "Custom",
+      "custom_action": "handle_gift_selection",
+      "custom_action_param": {
+       "cat1_list": "{cat1_list}",
+       "cat2_list": "{cat2_list}"
+      }
+     }
+    }
+   }
+  },
+  "自动做日常任务": {
+   "type": "select",
+   "label": "每局千里结束之后自动领取日常任务奖励，刷新日常任务",
+   "cases": [
+    {
+     "name": "关闭（默认）",
+     "label": "不自动做，只单纯刷千里",
+     "pipeline_override": {
+      "点击空白": {
+       "next": [
+        "千里开局",
+        "点击空白"
+       ]
+      }
+     }
+    },
+    {
+     "name": "开启",
+     "label": "每局千里结束之后自动领取和刷新日常任务",
+     "pipeline_override": {
+      "点击空白": {
+       "next": [
+        "退回战役",
+        "点击空白"
+       ]
+      }
+     }
+    }
+   ]
+  },
+  "龚行天罚次数": {
+   "type": "input",
+   "label": "亲率武将需要放到中间，自己手动放，计算好自己的虎符数量，后果自负",
+   "description": "亲率武将需要放到中间，自己手动放。",
+   "inputs": [
+    {
+     "name": "亲率次数",
+     "label": "如果使用虎符增加亲率武将的次数",
+     "default": "2",
+     "pipeline_type": "string"
+    },
+    {
+     "name": "运行次数",
+     "label": "运行次数，次数决定打多少把",
+     "default": "2",
+     "pipeline_type": "int"
+    }
+   ],
+   "pipeline_override": {
+    "输入统率值": {
+     "action": {
+      "type": "InputText",
+      "param": {
+       "input_text": "{亲率次数}"
+      }
+     },
+     "next": [
+      "确认增加统率值"
+     ],
+     "$__mpe_code": {
+      "position": {
+       "x": 3410,
+       "y": 260
+      }
+     }
+    },
+    "开始": {
+     "recognition": {
+      "type": "OCR",
+      "roi": [
+       1134,
+       598,
+       59,
+       41
+      ],
+      "expected": [
+       "开始"
+      ]
+     },
+     "max_hit": "{运行次数}",
+     "action": {
+      "type": "Click"
+     },
+     "next": [
+      "点击亲率"
+     ]
+    },
+    "验证托管": {
+     "recognition": {
+      "type": "OCR",
+      "roi": [
+       485,
+       550,
+       92,
+       73
+      ],
+      "expected": [
+       "托管"
+      ]
+     }
+    }
+   }
+  },
+  "是否使用虎符增加统率值": {
+   "type": "switch",
+   "label": "是否使用虎符增加统率值",
+   "description": "是否使用虎符增加统率值",
+   "default_case": "No",
+   "cases": [
+    {
+     "name": "Yes",
+     "label": "是",
+     "pipeline_override": {
+      "亲率武将": {
+       "enabled": true
+      }
+     }
+    },
+    {
+     "name": "No",
+     "label": "否",
+     "pipeline_override": {
+      "亲率武将": {
+       "enabled": false
+      }
+     }
+    }
+   ]
+  }
+ },
+ "agent": {
+  "child_exec": "python/python.exe",
+  "child_args": [
+   "-u",
+   "agent/main.py"
+  ]
+ },
+ "preset": [
+  {
+   "name": "ace全能助手",
+   "task": [
+    {
+     "name": "千里走单骑入口（多选一）"
+    },
+    {
+     "name": "继续战斗入口（多选一）"
+    },
+    {
+     "name": "巅峰赛开始挑战自动投降（多选一）"
+    },
+    {
+     "name": "龚行天罚（多选一）"
+    }
+   ]
+  },
+  {
+   "name": "仅供学习交流，有问题请自行求助AI"
+  }
+ ],
+ "task": [
+  {
+   "name": "千里走单骑入口（多选一）",
+   "entry": "千里走单骑",
+   "option": [
+    "选将",
+    "赠礼配置",
+    "自动做日常任务"
+   ],
+   "description": "千里走单骑入口：在千里走单骑主页使用，不要选武将可一键全自动选将开打，\ncat1是自定义选信物，用英文逗号,隔开，cat2是自定义选驰援，用英文逗号,隔开\n仅供学习交流，有问题请自行求助AI"
+  },
+  {
+   "name": "继续战斗入口（多选一）",
+   "entry": "继续战斗",
+   "option": [
+    "选将",
+    "赠礼配置",
+    "自动做日常任务"
+   ],
+   "description": "继续战斗入口：在继续战斗内选择战斗或者事件时使用，可接着继续全自动打，\ncat1是自定义选信物，用英文逗号,隔开，cat2是自定义选驰援，用英文逗号,隔开\n仅供学习交流，有问题请自行求助AI"
+  },
+  {
+   "name": "巅峰赛开始挑战自动投降（多选一）",
+   "entry": "开始巅峰赛挑战",
+   "description": "自动投降需要在巅峰赛开始挑战页面执行任务，全自动ban将选将投降\n仅供学习交流，有问题请自行求助AI"
+  },
+  {
+   "name": "龚行天罚（多选一）",
+   "entry": "创建房间",
+   "option": [
+    "龚行天罚次数",
+    "是否使用虎符增加统率值"
+   ],
+   "description": "龚行天罚需要在弓形天罚创建房间页面执行任务\n仅供学习交流，有问题请自行求助AI"
+  }
+ ]
+}

@@ -1,0 +1,642 @@
+{
+    "$__mpe_config_巅峰赛自动投降": {
+        "$__mpe_code": {
+            "prefix": "",
+            "coordinateMode": "absolute-v1",
+            "lastSyncTime": 1783248129198,
+            "isModifiedExternally": false,
+            "filePath": "D:\\games\\Maa_mjs_ace\\assets\\resource\\pipeline\\巅峰赛自动投降.json",
+            "savedViewport": {
+                "x": -5647,
+                "y": 191,
+                "zoom": 1.05
+            },
+            "filename": "巅峰赛自动投降",
+            "version": "v1.7.3"
+        }
+    },
+    "ban将确认": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    544,
+                    509,
+                    187,
+                    51
+                ],
+                "expected": [
+                    "确定"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "timeout": -1,
+        "rate_limit": 3000,
+        "next": [
+            "ban将确认",
+            "选将确定"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 432,
+                "y": -30
+            }
+        }
+    },
+    "右边选将": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1123,
+                    523,
+                    97,
+                    143
+                ],
+                "template": [
+                    "右边选将.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "选将上1"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1111,
+                "y": 260
+            }
+        }
+    },
+    "巅峰赛": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1200,
+                    51,
+                    63,
+                    75
+                ],
+                "template": [
+                    "巅峰赛设置.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "巅峰赛",
+            "投降"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2750,
+                "y": 81
+            }
+        }
+    },
+    "巅峰赛下一步": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    578,
+                    614,
+                    115,
+                    49
+                ],
+                "expected": [
+                    "下一步"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "巅峰赛下一步",
+            "巅峰赛确认"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 4063,
+                "y": 148
+            }
+        }
+    },
+    "巅峰赛确认": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    598,
+                    599,
+                    79,
+                    52
+                ],
+                "expected": [
+                    "确认"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "巅峰赛确认",
+            "结束挑战"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 4474,
+                "y": 151
+            }
+        }
+    },
+    "左边选将": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    49,
+                    520,
+                    108,
+                    149
+                ],
+                "template": [
+                    "左边选将.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "选将上1"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1116,
+                "y": -22
+            }
+        }
+    },
+    "开始匹配": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    586,
+                    495,
+                    64,
+                    36
+                ],
+                "expected": [
+                    "开始"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1110,
+        "next": [
+            "开始匹配",
+            "ban将确认"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 109,
+                "y": -48
+            }
+        }
+    },
+    "开始巅峰赛挑战": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    587,
+                    488,
+                    113,
+                    46
+                ],
+                "expected": [
+                    "开启挑战"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1110,
+        "next": [
+            "开始巅峰赛挑战",
+            "开始匹配"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": -301,
+                "y": -138
+            }
+        }
+    },
+    "投降": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1207,
+                    282,
+                    52,
+                    49
+                ],
+                "template": [
+                    "投降.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "投降确认",
+            "投降"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3038,
+                "y": 70
+            }
+        }
+    },
+    "投降确认": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    516,
+                    442,
+                    55,
+                    34
+                ],
+                "expected": [
+                    "确认"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "投降确认",
+            "点击空白区域"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3323,
+                "y": 96
+            }
+        }
+    },
+    "点击空白区域": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    575,
+                    621,
+                    42,
+                    44
+                ],
+                "expected": [
+                    "空白"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    728,
+                    542,
+                    450,
+                    116
+                ]
+            }
+        },
+        "next": [
+            "点击空白区域",
+            "巅峰赛下一步"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3666,
+                "y": 82
+            }
+        }
+    },
+    "结束挑战": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1083,
+                    599,
+                    113,
+                    46
+                ],
+                "expected": [
+                    "结束挑战"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "结束确认",
+            "结束挑战"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 4809,
+                "y": 160
+            }
+        }
+    },
+    "结束点击空白": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    577,
+                    495,
+                    122,
+                    103
+                ],
+                "expected": [
+                    "白"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    766,
+                    488,
+                    295,
+                    170
+                ]
+            }
+        },
+        "next": [
+            "结束点击空白",
+            "开始巅峰赛挑战"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 6084,
+                "y": -64
+            }
+        }
+    },
+    "结束确认": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    496,
+                    436,
+                    89,
+                    49
+                ],
+                "expected": [
+                    "确认"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "结束确认",
+            "结束点击空白"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5285,
+                "y": 186
+            }
+        }
+    },
+    "选将上1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": ""
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    317,
+                    159,
+                    29,
+                    106
+                ]
+            }
+        },
+        "next": [
+            "选将上2"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1567,
+                "y": 381
+            }
+        }
+    },
+    "选将上2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": ""
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    456,
+                    158,
+                    29,
+                    109
+                ]
+            }
+        },
+        "next": [
+            "选将上3"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1831,
+                "y": 660
+            }
+        }
+    },
+    "选将上3": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": ""
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    594,
+                    159,
+                    29,
+                    92
+                ]
+            }
+        },
+        "next": [
+            "选将上4"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2087,
+                "y": 647
+            }
+        }
+    },
+    "选将上4": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": ""
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    730,
+                    161,
+                    32,
+                    93
+                ]
+            }
+        },
+        "next": [
+            "选将上5"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2376,
+                "y": 625
+            }
+        }
+    },
+    "选将上5": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": ""
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    869,
+                    156,
+                    26,
+                    96
+                ]
+            }
+        },
+        "next": [
+            "选将完成"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2733,
+                "y": 666
+            }
+        }
+    },
+    "选将完成": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    604,
+                    466,
+                    73,
+                    41
+                ],
+                "expected": [
+                    "确定"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "repeat": 2,
+        "post_delay": 1110,
+        "timeout": -1,
+        "rate_limit": 3000,
+        "next": [
+            "选将确定",
+            "巅峰赛"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3115,
+                "y": 656
+            }
+        }
+    },
+    "选将确定": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    602,
+                    471,
+                    84,
+                    43
+                ],
+                "expected": [
+                    "确"
+                ]
+            }
+        },
+        "next": [
+            "左边选将",
+            "右边选将",
+            "巅峰赛"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 778,
+                "y": 35
+            }
+        }
+    }
+}

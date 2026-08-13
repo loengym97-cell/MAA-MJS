@@ -1,0 +1,209 @@
+{
+  "CurrentControllerName": "安卓端",
+  "Resource": "官服",
+  "InstanceName": "千里走单骑",
+  "CurrentTasks": [
+    "千里走单骑入口（多选一）<|||>千里走单骑",
+    "继续战斗入口（多选一）<|||>继续战斗",
+    "倒计时<|||>CountdownAction",
+    "千里走单骑入口（二选一）<|||>千里走单骑",
+    "继续战斗入口（二选一）<|||>继续战斗"
+  ],
+  "TaskItems": [
+    {
+      "name": "千里走单骑入口（多选一）",
+      "entry": "千里走单骑",
+      "default_check": true,
+      "description": "千里走单骑入口：在千里走单骑主页使用，不要选武将可一键全自动选将开打，\ncat1是自定义选信物，用英文逗号,隔开，cat2是自定义选驰援，用英文逗号,隔开\n仅供学习交流，有问题请自行求助AI",
+      "option": [
+        {
+          "name": "选将",
+          "index": 0,
+          "data": {
+            "选将": "吕布"
+          }
+        },
+        {
+          "name": "赠礼配置",
+          "index": 0,
+          "data": {
+            "cat1_list": "马超,吕布,关羽,张春华,司马懿,孙策",
+            "cat2_list": "刘禅,萧何,马超,曹丕,周勃,虞姬,范增,龙且"
+          }
+        },
+        {
+          "name": "自动做日常任务",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "name": "继续战斗入口（多选一）",
+      "entry": "继续战斗",
+      "default_check": true,
+      "description": "继续战斗入口：在继续战斗内选择战斗或者事件时使用，可接着继续全自动打，\ncat1是自定义选信物，用英文逗号,隔开，cat2是自定义选驰援，用英文逗号,隔开\n仅供学习交流，有问题请自行求助AI",
+      "option": [
+        {
+          "name": "选将",
+          "index": 0,
+          "data": {
+            "选将": "吕布"
+          }
+        },
+        {
+          "name": "赠礼配置",
+          "index": 0,
+          "data": {
+            "cat1_list": "韩信,马超,吕布,关羽,张春华,司马懿,孙策",
+            "cat2_list": "刘禅,萧何,马超,曹丕,周勃"
+          }
+        },
+        {
+          "name": "自动做日常任务",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "name": "倒计时",
+      "entry": "CountdownAction",
+      "default_check": true,
+      "description": "SpecialTask_CountdownDesc",
+      "pipeline_override": {
+        "CountdownAction": {
+          "action": "Custom",
+          "custom_action": "CountdownAction",
+          "custom_action_param": {
+            "seconds": 60
+          }
+        }
+      }
+    },
+    {
+      "name": "千里走单骑入口（多选一）",
+      "entry": "千里走单骑",
+      "default_check": true,
+      "description": "千里走单骑入口：在千里走单骑主页使用，不要选武将可一键全自动选将开打，\ncat1是自定义选信物，用英文逗号,隔开，cat2是自定义选驰援，用英文逗号,隔开\n仅供学习交流，有问题请自行求助AI",
+      "option": [
+        {
+          "name": "选将",
+          "index": 0,
+          "data": {
+            "选将": "吕布"
+          }
+        },
+        {
+          "name": "赠礼配置",
+          "index": 0,
+          "data": {
+            "cat1_list": "马超,吕布,关羽,张春华,司马懿,孙策",
+            "cat2_list": "刘禅,萧何,马超,曹丕,周勃"
+          }
+        },
+        {
+          "name": "自动做日常任务",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "name": "倒计时",
+      "entry": "CountdownAction",
+      "default_check": true,
+      "description": "SpecialTask_CountdownDesc",
+      "pipeline_override": {
+        "CountdownAction": {
+          "action": "Custom",
+          "custom_action": "CountdownAction",
+          "custom_action_param": {
+            "seconds": 60
+          }
+        }
+      }
+    },
+    {
+      "name": "继续战斗入口（多选一）",
+      "entry": "继续战斗",
+      "default_check": true,
+      "description": "继续战斗入口：在继续战斗内选择战斗或者事件时使用，可接着继续全自动打，\ncat1是自定义选信物，用英文逗号,隔开，cat2是自定义选驰援，用英文逗号,隔开\n仅供学习交流，有问题请自行求助AI",
+      "option": [
+        {
+          "name": "选将",
+          "index": 0,
+          "data": {
+            "选将": "吕布"
+          }
+        },
+        {
+          "name": "赠礼配置",
+          "index": 0,
+          "data": {
+            "cat1_list": "马超,吕布,关羽,张春华,司马懿,孙策",
+            "cat2_list": "刘禅,萧何,马超,曹丕,周勃"
+          }
+        },
+        {
+          "name": "自动做日常任务",
+          "index": 0
+        }
+      ]
+    },
+    {
+      "name": "倒计时",
+      "entry": "CountdownAction",
+      "default_check": true,
+      "description": "SpecialTask_CountdownDesc",
+      "pipeline_override": {
+        "CountdownAction": {
+          "action": "Custom",
+          "custom_action": "CountdownAction",
+          "custom_action_param": {
+            "seconds": 60
+          }
+        }
+      }
+    },
+    {
+      "name": "千里走单骑入口（多选一）",
+      "entry": "千里走单骑",
+      "default_check": true,
+      "description": "千里走单骑入口：在千里走单骑主页使用，不要选武将可一键全自动选将开打，\ncat1是自定义选信物，用英文逗号,隔开，cat2是自定义选驰援，用英文逗号,隔开\n仅供学习交流，有问题请自行求助AI",
+      "option": [
+        {
+          "name": "选将",
+          "index": 0,
+          "data": {
+            "选将": "吕布"
+          }
+        },
+        {
+          "name": "赠礼配置",
+          "index": 0,
+          "data": {
+            "cat1_list": "韩信,马超,吕布,关羽,张春华,司马懿,孙策",
+            "cat2_list": "刘禅,萧何,马超,曹丕,周勃"
+          }
+        },
+        {
+          "name": "自动做日常任务",
+          "index": 0
+        }
+      ]
+    }
+  ],
+  "InstancePresetKey": "千里走单骑",
+  "ResourceOptionItems": {},
+  "AdbDevice": {
+    "InfoHandle": {
+      "value": 2239338287600
+    },
+    "Name": "MuMu安卓设备-MuMuPlayer12 v5",
+    "AdbPath": "D:/Program Files/Netease/MuMu Player 12/nx_main/adb.exe",
+    "AdbSerial": "127.0.0.1:16384",
+    "ScreencapMethods": 64,
+    "InputMethods": 18446744073709551607,
+    "Config": "{\"extras\":{\"mumu\":{\"enable\":true,\"index\":0,\"path\":\"D:/Program Files/Netease/MuMu Player 12\"}}}",
+    "AgentPath": "./MaaAgentBinary"
+  },
+  "CurrentController": 2
+}

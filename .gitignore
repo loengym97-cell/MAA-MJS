@@ -1,0 +1,34 @@
+# ===== 运行时与依赖（请从官方 Release 获取，不入库） =====
+python/
+deps/
+libs/
+runtimes/
+plugins/
+libloader.dll
+MFAAvalonia.exe
+MFAAvalonia.dll
+MFAAvalonia.deps.json
+MFAAvalonia.runtimeconfig.json
+DependencySetup_依赖库安装_win.bat
+
+# ===== 日志与缓存 =====
+debug/
+logs/
+agent/debug/
+agent/logs/
+agent/__pycache__/
+__pycache__/
+*.log
+*.pyc
+temp/
+
+# ===== 备份与个人笔记 =====
+backup/
+今日改动.md
+流程分析.md
+版本更新指南.md
+逻辑树.md
+西楚版本无尽千里全赠礼全事件.xlsx
+
+# ===== git =====
+.git/

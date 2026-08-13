@@ -1,0 +1,414 @@
+{
+    "$__mpe_config_刷新日常": {
+        "$__mpe_code": {
+            "prefix": "",
+            "coordinateMode": "absolute-v1",
+            "lastSyncTime": 1783337100441,
+            "isModifiedExternally": false,
+            "filePath": "D:\\games\\Maa_mjs_ace\\assets\\resource\\pipeline\\刷新日常.json",
+            "savedViewport": {
+                "x": 168,
+                "y": 373,
+                "zoom": 0.75
+            },
+            "filename": "刷新日常",
+            "version": "v1.7.3"
+        }
+    },
+    "$__mpe_external_千里开局_刷新日常": {
+        "$__mpe_code": {
+            "position": {
+                "x": 2688,
+                "y": -96
+            }
+        }
+    },
+    "军令状刷新": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    538,
+                    457,
+                    56,
+                    36
+                ],
+                "expected": [
+                    "确定"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1110,
+        "next": [
+            "军令状刷新",
+            "刷新任务",
+            "退出任务"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1050,
+                "y": 171
+            }
+        }
+    },
+    "刷新任务": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    514,
+                    336,
+                    553,
+                    273
+                ],
+                "expected": [
+                    "刷新"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1111,
+        "next": [
+            "刷新任务不再提示",
+            "军令状刷新",
+            "刷新任务",
+            "退出任务"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 960,
+                "y": -313
+            }
+        }
+    },
+    "进入任务": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1095,
+                    608,
+                    31,
+                    34
+                ],
+                "expected": [
+                    "任"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1110,
+        "next": [
+            "进入任务",
+            "领取日常奖励",
+            "刷新任务",
+            "退出任务"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 154,
+                "y": -337
+            }
+        }
+    },
+    "进入千里": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    41,
+                    48,
+                    40,
+                    48
+                ],
+                "expected": [
+                    "战"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    425,
+                    336,
+                    97,
+                    84
+                ]
+            }
+        },
+        "post_delay": 1110,
+        "next": [
+            "进入千里",
+            "千里开局"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2145,
+                "y": -197
+            }
+        }
+    },
+    "进入战役": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    845,
+                    603,
+                    59,
+                    46
+                ],
+                "expected": [
+                    "伙伴"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    924,
+                    309,
+                    132,
+                    155
+                ]
+            }
+        },
+        "post_delay": 1110,
+        "next": [
+            "进入战役",
+            "进入千里"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1796,
+                "y": -230
+            }
+        }
+    },
+    "退出任务": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    810,
+                    111,
+                    75,
+                    41
+                ],
+                "expected": [
+                    "任务"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1202,
+                    78,
+                    52,
+                    27
+                ]
+            }
+        },
+        "next": [
+            "退出任务",
+            "进入战役"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1415,
+                "y": -195
+            }
+        }
+    },
+    "退回大厅": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    43,
+                    44,
+                    38,
+                    44
+                ],
+                "expected": [
+                    "战"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1202,
+                    77,
+                    53,
+                    25
+                ]
+            }
+        },
+        "next": [
+            "退回大厅",
+            "进入任务"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": -330,
+                "y": -312
+            }
+        }
+    },
+    "退回战役": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    845,
+                    528,
+                    111,
+                    54
+                ],
+                "expected": [
+                    "无尽"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1202,
+                    78,
+                    52,
+                    24
+                ]
+            }
+        },
+        "next": [
+            "退回战役",
+            "退回大厅"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": -681,
+                "y": -323
+            }
+        }
+    },
+    "领取日常奖励": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    510,
+                    331,
+                    565,
+                    281
+                ],
+                "expected": [
+                    "领取奖励"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1330,
+        "next": [
+            "领取银两",
+            "领取日常奖励",
+            "刷新任务"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 530,
+                "y": -266
+            }
+        }
+    },
+    "领取银两": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    621,
+                    391,
+                    44,
+                    22
+                ],
+                "expected": [
+                    "碎银"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    766,
+                    488,
+                    295,
+                    170
+                ]
+            }
+        },
+        "post_delay": 1110,
+        "next": [
+            "领取日常奖励",
+            "刷新任务",
+            "退出任务"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 519,
+                "y": 167
+            }
+        }
+    },
+    "刷新任务不再提示": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    549,
+                    412,
+                    37,
+                    37
+                ],
+                "template": [
+                    "刷新任务不再提示.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "军令状刷新"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1508,
+                "y": 224
+            }
+        }
+    },
+    "新建节点4": {
+        "$__mpe_code": {
+            "position": {
+                "x": -20,
+                "y": 59
+            }
+        }
+    }
+}

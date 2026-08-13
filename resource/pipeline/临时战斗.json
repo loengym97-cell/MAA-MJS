@@ -1,0 +1,340 @@
+{
+    "$__mpe_config_临时战斗": {
+        "$__mpe_code": {
+            "prefix": "",
+            "coordinateMode": "absolute-v1",
+            "lastSyncTime": 1783589050601,
+            "isModifiedExternally": false,
+            "filePath": "D:\\games\\Maa_mjs_ace\\assets\\resource\\pipeline\\临时战斗.json",
+            "savedViewport": {
+                "x": -575,
+                "y": -291,
+                "zoom": 0.57
+            },
+            "filename": "临时战斗",
+            "version": "v1.7.3"
+        }
+    },
+    "$__mpe_external_事件战斗_临时战斗": {
+        "$__mpe_code": {
+            "position": {
+                "x": 2090,
+                "y": 551
+            }
+        }
+    },
+    "$__mpe_external_关闭_临时战斗": {
+        "$__mpe_code": {
+            "position": {
+                "x": 2087,
+                "y": 720
+            }
+        }
+    },
+    "$__mpe_external_千里开局_临时战斗": {
+        "$__mpe_code": {
+            "position": {
+                "x": 3390,
+                "y": 1054
+            }
+        }
+    },
+    "$__mpe_external_属性变化_临时战斗": {
+        "$__mpe_code": {
+            "position": {
+                "x": 2081,
+                "y": 882
+            }
+        }
+    },
+    "$__mpe_external_开始对局_临时战斗": {
+        "$__mpe_code": {
+            "position": {
+                "x": 2082,
+                "y": 642
+            }
+        }
+    },
+    "$__mpe_external_继续战斗_临时战斗": {
+        "$__mpe_code": {
+            "position": {
+                "x": 2044,
+                "y": 1870
+            }
+        }
+    },
+    "$__mpe_external_选择赠礼_临时战斗": {
+        "$__mpe_code": {
+            "position": {
+                "x": 2081,
+                "y": 805
+            }
+        }
+    },
+    "临时战斗": {
+        "next": [
+            "开始对局",
+            "[JumpBack]设置",
+            "继续战斗",
+            "点击空白",
+            "点击空白图",
+            "选择赠礼",
+            "属性变化",
+            "战斗结束确认",
+            "领取奖励截图",
+            "重复确认",
+            "事件选项",
+            "事件战斗",
+            "兜底点击"
+        ],
+        "on_error": [
+            "继续战斗"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1730,
+                "y": 1024
+            }
+        }
+    },
+    "战斗结束确认": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    550,
+                    546,
+                    170,
+                    67
+                ],
+                "expected": [
+                    "确认"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "战斗结束确认",
+            "属性变化"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2067,
+                "y": 1269
+            }
+        }
+    },
+    "点击空白": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    530,
+                    490,
+                    217,
+                    81
+                ],
+                "expected": [
+                    "点击空白"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    780,
+                    569,
+                    301,
+                    86
+                ]
+            }
+        },
+        "post_delay": 1110,
+        "rate_limit": 3000,
+        "next": [
+            "点击空白",
+            "千里开局"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2919,
+                "y": 979
+            }
+        }
+    },
+    "重复确认": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    599,
+                    604,
+                    79,
+                    46
+                ],
+                "expected": [
+                    "确认"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "timeout": 6000,
+        "rate_limit": 3000,
+        "next": [
+            "临时战斗"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2061,
+                "y": 1505
+            }
+        }
+    },
+    "领取奖励": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    544,
+                    596,
+                    192,
+                    62
+                ],
+                "expected": [
+                    "领取奖励"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "领取奖励",
+            "点击空白"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2454,
+                "y": 968
+            }
+        }
+    },
+    "领取奖励截图": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    544,
+                    596,
+                    192,
+                    62
+                ],
+                "expected": [
+                    "领取奖励"
+                ]
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "save_reward_screenshot"
+            }
+        },
+        "next": [
+            "领取奖励"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2074,
+                "y": 982
+            }
+        }
+    },
+    "点击空白图": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    530,
+                    490,
+                    217,
+                    81
+                ],
+                "template": [
+                    "点击空白.png"
+                ],
+                "threshold": 0.7
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    780,
+                    569,
+                    301,
+                    86
+                ]
+            }
+        },
+        "post_delay": 1110,
+        "rate_limit": 3000,
+        "next": [
+            "点击空白图",
+            "千里开局"
+        ]
+    },
+    "兜底点击": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "SafeFallbackClick",
+                "custom_action_param": {
+                    "x": 960,
+                    "y": 180,
+                    "interval": 18
+                }
+            }
+        },
+        "next": [
+            "检测托管",
+            "临时战斗"
+        ]
+    },
+    "检测托管": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    400,
+                    430,
+                    480,
+                    240
+                ],
+                "expected": [
+                    "离开中",
+                    "托管中"
+                ]
+            }
+        },
+        "action": {
+            "type": "DoNothing"
+        },
+        "next": [
+            "临时战斗"
+        ],
+        "on_error": [
+            "临时战斗"
+        ]
+    }
+}

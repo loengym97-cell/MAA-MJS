@@ -1,0 +1,295 @@
+{
+    "$__mpe_config_战斗": {
+        "$__mpe_code": {
+            "prefix": "",
+            "coordinateMode": "absolute-v1",
+            "lastSyncTime": 1783589144121,
+            "isModifiedExternally": false,
+            "filePath": "D:\\games\\Maa_mjs_ace\\assets\\resource\\pipeline\\battle\\战斗.json",
+            "savedViewport": {
+                "x": -48,
+                "y": -472,
+                "zoom": 0.76
+            },
+            "filename": "战斗",
+            "version": "v1.7.3"
+        }
+    },
+    "下一步": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    580,
+                    612,
+                    120,
+                    49
+                ],
+                "expected": [
+                    "下一步"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "timeout": 6000,
+        "next": [
+            "确认"
+        ],
+        "on_error": [
+            "下一步"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2746,
+                "y": 932
+            }
+        }
+    },
+    "关闭": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    630,
+                    380,
+                    160,
+                    100
+                ],
+                "expected": [
+                    "取消"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "关闭",
+            "设置",
+            "托管"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 310,
+                "y": 927
+            }
+        }
+    },
+    "托管": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1211,
+                    148,
+                    45,
+                    42
+                ],
+                "template": [
+                    "托管.png"
+                ],
+                "threshold": 0.85
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "timeout": 5000,
+        "next": [
+            "验证托管"
+        ],
+        "on_error": [
+            "托管"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1016,
+                "y": 889
+            }
+        }
+    },
+    "点击空白下一步": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    520,
+                    623,
+                    236,
+                    41
+                ],
+                "expected": [
+                    "点击空白"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "下一步",
+            "点击空白下一步",
+            "确认"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2327,
+                "y": 946
+            }
+        }
+    },
+    "确认": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    599,
+                    604,
+                    79,
+                    46
+                ],
+                "expected": [
+                    "确认"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "timeout": 6000,
+        "rate_limit": 3000,
+        "$__mpe_code": {
+            "position": {
+                "x": 3058,
+                "y": 469
+            }
+        }
+    },
+    "设置": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1202,
+                    60,
+                    57,
+                    55
+                ],
+                "template": [
+                    "设置.png"
+                ],
+                "threshold": 0.8
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1110,
+        "timeout": 15000,
+        "next": [
+            "关闭",
+            "设置",
+            "托管"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 688,
+                "y": 888
+            }
+        }
+    },
+    "长时间未胜利投降": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1209,
+                    221,
+                    48,
+                    62
+                ],
+                "template": [
+                    "长时间未胜利投降.png"
+                ],
+                "threshold": 0.85
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1110,
+        "next": [
+            "长时间确认投降"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1780,
+                "y": 1377
+            }
+        }
+    },
+    "长时间确认投降": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    490,
+                    441,
+                    98,
+                    36
+                ],
+                "expected": [
+                    "确认"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "点击空白下一步"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2106,
+                "y": 1379
+            }
+        }
+    },
+    "验证托管": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    472,
+                    533,
+                    133,
+                    111
+                ],
+                "expected": [
+                    "离开中"
+                ]
+            }
+        },
+        "timeout": 600000,
+        "rate_limit": 3000,
+        "next": [
+            "点击空白下一步",
+            "[JumpBack]点击空白图"
+        ],
+        "on_error": [
+            "长时间未胜利投降"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1484,
+                "y": 912
+            }
+        }
+    }
+}

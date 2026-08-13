@@ -1,0 +1,267 @@
+{
+    "$__mpe_config_千里开局": {
+        "$__mpe_code": {
+            "prefix": "",
+            "coordinateMode": "absolute-v1",
+            "lastSyncTime": 1783214371519,
+            "isModifiedExternally": false,
+            "filePath": "D:\\games\\Maa_mjs_qlzdq\\assets\\resource\\pipeline\\千里开局.json",
+            "savedViewport": {
+                "x": -252,
+                "y": 223,
+                "zoom": 1
+            },
+            "filename": "千里开局",
+            "version": "v1.7.3"
+        }
+    },
+    "$__mpe_external_临时战斗_千里开局": {
+        "$__mpe_code": {
+            "position": {
+                "x": 2225,
+                "y": 219
+            }
+        }
+    },
+    "初始战斗": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    433,
+                    282,
+                    29,
+                    24
+                ],
+                "template": [
+                    "战斗图2.png",
+                    "战斗.png"
+                ],
+                "threshold": 0.8
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    0,
+                    -20,
+                    0,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "对局",
+            "初始战斗"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1620,
+                "y": 143
+            }
+        }
+    },
+    "千里开局": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1001,
+                    573,
+                    224,
+                    86
+                ],
+                "template": [
+                    "开始挑战.png"
+                ],
+                "threshold": 0.75
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1056,
+                    340,
+                    107,
+                    115
+                ]
+            }
+        },
+        "next": [
+            "自定义选将"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": -18,
+                "y": 93
+            }
+        },
+        "on_error": [
+            "兜底点击"
+        ]
+    },
+    "对局": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    379,
+                    590,
+                    183,
+                    46
+                ],
+                "expected": [
+                    "开始对局"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "临时战斗"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1908,
+                "y": 172
+            }
+        }
+    },
+    "开始挑战": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1023,
+                    590,
+                    178,
+                    54
+                ],
+                "expected": [
+                    "开始挑战"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 2000,
+        "rate_limit": 1000,
+        "next": [
+            "开始挑战",
+            "限制冲榜"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 974,
+                "y": 76
+            }
+        }
+    },
+    "自定义选将": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    100,
+                    506,
+                    1107,
+                    173
+                ],
+                "expected": [
+                    "吕布"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    0,
+                    -40,
+                    0,
+                    19
+                ]
+            }
+        },
+        "next": [
+            "退出选将",
+            "自定义选将"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 332,
+                "y": 15
+            }
+        }
+    },
+    "退出选将": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1067,
+                    335,
+                    71,
+                    57
+                ],
+                "template": [
+                    "战役属性.png"
+                ],
+                "threshold": 0.8
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    463,
+                    198,
+                    509,
+                    200
+                ]
+            }
+        },
+        "next": [
+            "开始挑战",
+            "退出选将"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 652,
+                "y": 59
+            }
+        }
+    },
+    "限制冲榜": {
+        "recognition": {
+            "type": "DirectHit",
+            "param": {
+                "roi": [
+                    239,
+                    45,
+                    42,
+                    49
+                ]
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "CheckNumberAndStop"
+            }
+        },
+        "next": [
+            "初始战斗"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1306,
+                "y": 143
+            }
+        }
+    }
+}

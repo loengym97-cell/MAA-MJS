@@ -1,0 +1,486 @@
+{
+    "$__mpe_config_龚行天罚": {
+        "$__mpe_code": {
+            "prefix": "",
+            "coordinateMode": "absolute-v1",
+            "lastSyncTime": 1783248507725,
+            "isModifiedExternally": false,
+            "filePath": "D:\\games\\Maa_mjs_ace\\assets\\resource\\pipeline\\龚行天罚.json",
+            "savedViewport": {
+                "x": -1269,
+                "y": 287,
+                "zoom": 0.69
+            },
+            "filename": "龚行天罚",
+            "version": "v1.7.3"
+        }
+    },
+    "$__mpe_external_关闭_龚行天罚": {
+        "$__mpe_code": {
+            "position": {
+                "x": 5734,
+                "y": 400
+            }
+        }
+    },
+    "亲率武将": {
+        "enabled": false,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    944,
+                    623,
+                    84,
+                    35
+                ],
+                "expected": [
+                    "武将"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    968,
+                    604,
+                    33,
+                    27
+                ]
+            }
+        },
+        "next": [
+            "点击增加统率值"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2495,
+                "y": -222
+            }
+        }
+    },
+    "任务结束": {
+        "action": {
+            "type": "StopTask"
+        },
+        "$__mpe_code": {
+            "position": {
+                "x": 5719,
+                "y": 511
+            }
+        }
+    },
+    "创建房间": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1090,
+                    614,
+                    132,
+                    49
+                ],
+                "expected": [
+                    "创建房间"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "点击输入"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 981,
+                "y": 36
+            }
+        }
+    },
+    "开始": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1134,
+                    598,
+                    59,
+                    41
+                ],
+                "expected": [
+                    "开始"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "点击亲率"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 4384,
+                "y": 297
+            }
+        }
+    },
+    "添加灵智": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1124,
+                    119,
+                    60,
+                    59
+                ],
+                "template": [
+                    "灵智.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "亲率武将",
+            "开始"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2093,
+                "y": 106
+            }
+        }
+    },
+    "点击亲率": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    220,
+                    431,
+                    67,
+                    29
+                ],
+                "expected": [
+                    "确定"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    396,
+                    384,
+                    41,
+                    38
+                ]
+            }
+        },
+        "next": [
+            "选中武将"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 4759,
+                "y": 294
+            }
+        }
+    },
+    "点击增加统率值": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1103,
+                    72,
+                    46,
+                    30
+                ],
+                "expected": [
+                    "统率"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1222,
+                    73,
+                    30,
+                    29
+                ]
+            }
+        },
+        "next": [
+            "点击输入统率值"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 2821,
+                "y": -213
+            }
+        }
+    },
+    "点击输入": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    719,
+                    206,
+                    48,
+                    32
+                ],
+                "expected": [
+                    "请输入"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1110,
+        "next": [
+            "输入密码"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1270,
+                "y": 11
+            }
+        }
+    },
+    "点击输入统率值": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    475,
+                    487,
+                    74,
+                    41
+                ],
+                "expected": [
+                    "确定"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    621,
+                    442,
+                    35,
+                    25
+                ]
+            }
+        },
+        "post_delay": 1110,
+        "next": [
+            "输入统率值"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3167,
+                "y": -232
+            }
+        }
+    },
+    "确认创建": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    789,
+                    552,
+                    122,
+                    43
+                ],
+                "expected": [
+                    "创建房间"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "添加灵智"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1832,
+                "y": 92
+            }
+        }
+    },
+    "确认增加统率值": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    459,
+                    485,
+                    86,
+                    44
+                ],
+                "expected": [
+                    "确定"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "退出亲率武将"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3845,
+                "y": -192
+            }
+        }
+    },
+    "确认选将": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    651,
+                    357,
+                    87,
+                    46
+                ],
+                "expected": [
+                    "确认"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 8220,
+        "timeout": 6000,
+        "rate_limit": 1000,
+        "next": [
+            "[JumpBack]关闭",
+            "开始",
+            "任务结束"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5408,
+                "y": 311
+            }
+        }
+    },
+    "输入密码": {
+        "action": {
+            "type": "InputText",
+            "param": {
+                "input_text": "1"
+            }
+        },
+        "next": [
+            "确认创建"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 1565,
+                "y": 86
+            }
+        }
+    },
+    "输入统率值": {
+        "action": {
+            "type": "InputText",
+            "param": {
+                "input_text": "1"
+            }
+        },
+        "next": [
+            "确认增加统率值"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 3528,
+                "y": -197
+            }
+        }
+    },
+    "退出亲率武将": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    734,
+                    482,
+                    79,
+                    40
+                ],
+                "expected": [
+                    "取消"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "开始"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 4155,
+                "y": -92
+            }
+        }
+    },
+    "选中武将": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    651,
+                    357,
+                    87,
+                    46
+                ],
+                "expected": [
+                    "确认"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    643,
+                    167,
+                    95,
+                    141
+                ]
+            }
+        },
+        "post_delay": 1110,
+        "next": [
+            "确认选将"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 5069,
+                "y": 322
+            }
+        }
+    }
+}
