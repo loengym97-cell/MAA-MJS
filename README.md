@@ -2,7 +2,7 @@
 
 基于 [MaaFramework](https://github.com/MaaXYZ/MaaFramework) 的名将杀「千里走单骑」全自动挂机助手。
 
-> 本项目由社区接手维护（原项目已停止维护）。**纯免费、仅供学习交流**，有问题请自行求助 AI（详见软件内公告）。
+> 本版由 **loengym97-cell** 在原作者代码基础上适配维护（原作者已停止维护）。**纯免费、仅供学习交流**，有问题请自行求助 AI（详见软件内公告）。
 
 ## 免责声明
 
@@ -28,4 +28,5 @@
 
 - 底层框架：[MaaXYZ/MaaFramework](https://github.com/MaaXYZ/MaaFramework)（LGPL-3.0）
 - 感谢 **啦啦啦**、**maa 开发交流群群友**、**夜茝** 对原项目的支持与帮助
-- 社区适配参考：[asdfxsxxs/MAAMJS](https://github.com/asdfxsxxs/MAAMJS)
+- 原作者（情兽）：[asdfxsxxs/MAAMJS](https://github.com/asdfxsxxs/MAAMJS)（已删库跑路，但代码是好代码）
+- AI 协助：**DeepSeek** 与 **DeepSeek Harness（DSH）**
