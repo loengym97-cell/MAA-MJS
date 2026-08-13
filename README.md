@@ -20,6 +20,12 @@
 4. 运行启动程序  MFAAvalonia.exe,根据界面提示选择控制器和任务，请认真查看视频，不看视频的不许进群
 【名将杀千里走单骑全自动】 <https://www.bilibili.com/video/BV1yqTu6WEB6/?share_source=copy_web&vd_source=99837343e018ea3f15ff07b9e9e924d1>
 
+
+## 版本历史
+
+- **v1.2.0** — OCR 加速：59 个固定按钮节点启用 only_rec（跳过文字检测直接识别）；agent 配置读取缓存；支持 GPU(DirectML) 推理加速（设置→性能 或 config/config.json 的 UseDirectML）
+- **v1.1.0** — 社区适配版基线（事件选项补全 137 词、兜底点击、托管链修复等）
+
 ## 构建
 
 参考 MaaFramework 官方文档进行构建。感谢以下开发者对本项目作出的贡献
