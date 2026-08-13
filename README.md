@@ -26,5 +26,6 @@
 ## 致谢
 
 - 底层框架：[MaaXYZ/MaaFramework](https://github.com/MaaXYZ/MaaFramework)（LGPL-3.0）
-- 参考仓库：[asdfxsxxs/MAAMJS](https://github.com/asdfxsxxs/MAAMJS)
+- 感谢 [asdfxsxxs/MAAMJS](https://github.com/asdfxsxxs/MAAMJS) 提供整个软件
+- 感谢 [2451123316](https://github.com/2451123316/) 提供各种功能
 - AI 协助：**DeepSeek** 与 **DeepSeek Harness（DSH）**
