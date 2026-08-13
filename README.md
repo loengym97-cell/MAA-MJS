@@ -16,7 +16,6 @@
 2. 下载最新 Release 中的压缩包并解压，以管理员身份运行 DependencySetup_依赖库安装_win.bat。
 3. 打开模拟器手机设置 → 开发者选项 → 开启 ADB 调试 → 进入游戏 → 关闭陌生人邀请；自定义武将必须在选将的第一页。
 4. 运行 MFAAvalonia.exe，根据界面提示选择控制器和任务。
-5. 参考视频：【名将杀千里走单骑全自动】https://www.bilibili.com/video/BV1yqTu6WEB6/
 
 ## 版本历史
 
@@ -27,6 +26,5 @@
 ## 致谢
 
 - 底层框架：[MaaXYZ/MaaFramework](https://github.com/MaaXYZ/MaaFramework)（LGPL-3.0）
-- 感谢 **啦啦啦**、**maa 开发交流群群友**、**夜茝** 对原项目的支持与帮助
-- 原作者（情兽）：[asdfxsxxs/MAAMJS](https://github.com/asdfxsxxs/MAAMJS)（已删库跑路，但代码是好代码）
+- 参考仓库：[asdfxsxxs/MAAMJS](https://github.com/asdfxsxxs/MAAMJS)
 - AI 协助：**DeepSeek** 与 **DeepSeek Harness（DSH）**
