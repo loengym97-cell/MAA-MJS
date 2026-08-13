@@ -1,6 +1,6 @@
-# 名将杀全能助手
+# 基于 MaaFramework 流水线语言与接口协议的游戏自动化研究项目
 
-基于 [MaaFramework](https://github.com/MaaXYZ/MaaFramework) 的名将杀「千里走单骑」全自动挂机助手。
+以 [MaaFramework](https://github.com/MaaXYZ/MaaFramework)（任务流水线协议 Pipeline Protocol + ProjectInterface 接口协议）为研究框架，以名将杀「千里走单骑」模式为实验对象，研究 JSON 流水线语言描述、图像识别（模板匹配 / OCR）、自定义识别与动作（Agent 协议）等游戏自动化技术。
 
 > 本版由 **loengym97-cell** 在原作者代码基础上适配维护（原作者已停止维护）。**纯免费、仅供学习交流**，有问题请自行求助 AI（详见软件内公告）。
 

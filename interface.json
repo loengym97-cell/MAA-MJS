@@ -1,9 +1,9 @@
 {
  "interface_version": 2,
- "name": "MaaFramework 图像识别自动化学习实践版",
- "title": "MaaFramework 图像识别自动化学习实践版",
- "label": "MaaFramework 图像识别自动化学习实践版",
- "description": "基于 MaaFramework 图像识别框架的自动化学习项目：模板匹配、OCR 文字识别、坐标点击与流程状态机控制。以名将杀千里走单骑为实践对象，仅用于学习交流。",
+ "name": "基于 MaaFramework 流水线语言与接口协议的游戏自动化研究项目",
+ "title": "基于 MaaFramework 流水线语言与接口协议的游戏自动化研究项目",
+ "label": "基于 MaaFramework 流水线语言与接口协议的游戏自动化研究项目",
+ "description": "基于 MaaFramework 任务流水线协议（Pipeline Protocol）与 ProjectInterface 接口协议的游戏自动化研究项目。以名将杀「千里走单骑」为实验对象，研究 JSON 流水线语言描述、模板匹配、OCR 文字识别、自定义识别与动作（Agent 协议）等自动化技术，仅用于学习交流。",
  "contact": "有问题请自行求助AI（详见公告）",
  "license": "MIT",
  "welcome": "./resource/announcement/公告副栏.md",
