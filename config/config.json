@@ -66,10 +66,12 @@
   "UI.TaskQueue.DashboardLayout.TaskQueueView": {
     "rows": 8,
     "columns": 12,
-    "spacing": 10.0
+    "spacing": 10
   },
   "UI.DashboardCardGrid.ResourceLayoutHash.TaskQueueView": "8962C0D3B352F180BDD17B02B4FC6D2FD45565EC8E4A832B52443D453653CAF0",
   "EnableAutoUpdateResource": false,
   "DownloadSourceIndex": 1,
-  "EnableCheckVersion": false
+  "EnableCheckVersion": false,
+  "UseDirectML": true,
+  "GPUOption": 1
 }
