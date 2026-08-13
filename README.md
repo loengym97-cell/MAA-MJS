@@ -1,6 +1,8 @@
 # 名将杀全能助手
 
-基于 MaaFramework 的mjs全能助手。感谢**啦啦啦**，**maa开发交流群群友**，**夜茝**对本项目的支持与帮助
+基于 [MaaFramework](https://github.com/MaaXYZ/MaaFramework) 的名将杀「千里走单骑」全自动挂机助手。
+
+> 本项目由社区接手维护（原项目已停止维护）。**纯免费、仅供学习交流**，有问题请自行求助 AI（详见软件内公告）。
 
 ## 免责声明
 
@@ -8,25 +10,22 @@
 2. **责任限制**：本程序及其开发者不对任何因使用或无法使用本程序造成的直接、间接、偶然、特殊及衍生的损失承担责任。这包括但不限于数据丢失、利润损失、业务中断或任何其它商业损害，无论这些损害是否基于合同、侵权或其他行为。
 3. **安全性声明**：尽管开发者已尽力确保程序的安全性，但无法保证程序完全没有缺陷或漏洞。用户应自行承担使用本程序可能带来的安全风险。
 
-## 交流反馈
-
-欢迎加入 QQ 群 **1015990545** 交流反馈。有能力者可以私聊打赏捐赠，作者小破电脑要带不动脚本了
-
 ## 使用说明
 
-1. 本应用基于mumu模拟器运行，使用雷电应该也可以，群友反馈使用雷电效果好，使用别的模拟器不确保能否运行。
-2. 下载最新 Release 中的压缩包并解压，以管理员身份运行DependencySetup_依赖库安装_win.bat。
-3. 打开mumu模拟器手机设置，开发者选项中打开adb调试，进入游戏，关闭陌生人邀请,自定义武将必须在选将的第一页
-4. 运行启动程序  MFAAvalonia.exe,根据界面提示选择控制器和任务，请认真查看视频，不看视频的不许进群
-【名将杀千里走单骑全自动】 <https://www.bilibili.com/video/BV1yqTu6WEB6/?share_source=copy_web&vd_source=99837343e018ea3f15ff07b9e9e924d1>
-
+1. 本应用基于 mumu 模拟器运行（雷电也可以，反馈效果更好，其他模拟器不保证能跑）。
+2. 下载最新 Release 中的压缩包并解压，以管理员身份运行 DependencySetup_依赖库安装_win.bat。
+3. 打开模拟器手机设置 → 开发者选项 → 开启 ADB 调试 → 进入游戏 → 关闭陌生人邀请；自定义武将必须在选将的第一页。
+4. 运行 MFAAvalonia.exe，根据界面提示选择控制器和任务。
+5. 参考视频：【名将杀千里走单骑全自动】https://www.bilibili.com/video/BV1yqTu6WEB6/
 
 ## 版本历史
 
-- **v1.2.0** — OCR 加速：59 个固定按钮节点启用 only_rec（跳过文字检测直接识别）；agent 配置读取缓存；支持 GPU(DirectML) 推理加速（设置→性能 或 config/config.json 的 UseDirectML）
-- **v1.1.0** — 社区适配版基线（事件选项补全 137 词、兜底点击、托管链修复等）
+- **v1.2.1** — 版本号同步（interface.json / README）
+- **v1.2.0** — OCR 加速：59 个固定按钮节点启用 only_rec（跳过文字检测直接识别）；agent 配置读取缓存；支持 GPU(DirectML) 推理加速（设置→性能，或 config/config.json 的 UseDirectML）
+- **v1.1.0** — 社区适配版基线（事件选项补全、兜底点击、托管链修复等）
 
-## 构建
+## 致谢
 
-参考 MaaFramework 官方文档进行构建。感谢以下开发者对本项目作出的贡献
-<https://github.com/asdfxsxxs/MAAMJS>
+- 底层框架：[MaaXYZ/MaaFramework](https://github.com/MaaXYZ/MaaFramework)（LGPL-3.0）
+- 感谢 **啦啦啦**、**maa 开发交流群群友**、**夜茝** 对原项目的支持与帮助
+- 社区适配参考：[asdfxsxxs/MAAMJS](https://github.com/asdfxsxxs/MAAMJS)
