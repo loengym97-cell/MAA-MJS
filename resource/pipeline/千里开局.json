@@ -114,8 +114,7 @@
                 ],
                 "expected": [
                     "开始对局"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "action": {
@@ -143,8 +142,7 @@
                 ],
                 "expected": [
                     "开始挑战"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "action": {

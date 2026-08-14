@@ -27,8 +27,7 @@
                 ],
                 "expected": [
                     "确定"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "action": {
@@ -116,8 +115,7 @@
                 ],
                 "expected": [
                     "下一步"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "action": {
@@ -146,8 +144,7 @@
                 ],
                 "expected": [
                     "确认"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "action": {
@@ -204,8 +201,7 @@
                 ],
                 "expected": [
                     "开始"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "action": {
@@ -235,8 +231,7 @@
                 ],
                 "expected": [
                     "开启挑战"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "action": {
@@ -295,8 +290,7 @@
                 ],
                 "expected": [
                     "确认"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "action": {
@@ -325,8 +319,7 @@
                 ],
                 "expected": [
                     "空白"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "action": {
@@ -363,8 +356,7 @@
                 ],
                 "expected": [
                     "结束挑战"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "action": {
@@ -430,8 +422,7 @@
                 ],
                 "expected": [
                     "确认"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "action": {
@@ -600,8 +591,7 @@
                 ],
                 "expected": [
                     "确定"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "action": {
@@ -634,8 +624,7 @@
                 ],
                 "expected": [
                     "确"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "next": [

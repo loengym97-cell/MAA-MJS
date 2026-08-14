@@ -30,5 +30,7 @@ backup/
 逻辑树.md
 西楚版本无尽千里全赠礼全事件.xlsx
 
+.nicegui/
+
 # ===== git =====
 .git/

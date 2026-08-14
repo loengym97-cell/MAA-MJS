@@ -35,8 +35,7 @@
                 ],
                 "expected": [
                     "确定"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "action": {
@@ -99,8 +98,7 @@
                 ],
                 "expected": [
                     "任"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "action": {
@@ -132,8 +130,7 @@
                 ],
                 "expected": [
                     "战"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "action": {
@@ -171,8 +168,7 @@
                 ],
                 "expected": [
                     "伙伴"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "action": {
@@ -210,8 +206,7 @@
                 ],
                 "expected": [
                     "任务"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "action": {
@@ -248,8 +243,7 @@
                 ],
                 "expected": [
                     "战"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "action": {
@@ -286,8 +280,7 @@
                 ],
                 "expected": [
                     "无尽"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "action": {
@@ -355,8 +348,7 @@
                 ],
                 "expected": [
                     "碎银"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "action": {

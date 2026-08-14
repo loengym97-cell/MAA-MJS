@@ -63,8 +63,7 @@
                 ],
                 "expected": [
                     "确认"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "action": {
@@ -266,8 +265,7 @@
                 ],
                 "expected": [
                     "停止转动"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "action": {
@@ -393,8 +391,7 @@
                 ],
                 "expected": [
                     "选择事件"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "action": {
@@ -440,8 +437,7 @@
                 ],
                 "expected": [
                     "购买"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "action": {
@@ -528,8 +524,7 @@
                 ],
                 "expected": [
                     "武将技能"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "action": {
@@ -600,8 +595,7 @@
                 ],
                 "expected": [
                     "开始对局"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "action": {
@@ -666,8 +660,7 @@
                 ],
                 "expected": [
                     "拒绝投喂"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "action": {
@@ -727,8 +720,7 @@
                 ],
                 "expected": [
                     "选择事件"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "action": {
@@ -757,8 +749,7 @@
                 ],
                 "expected": [
                     "不再提示"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "action": {
@@ -864,8 +855,7 @@
                 ],
                 "expected": [
                     "请点击继续"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "action": {
@@ -927,8 +917,7 @@
                 ],
                 "expected": [
                     "选择事件"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "action": {
@@ -990,8 +979,7 @@
                 ],
                 "expected": [
                     "取消"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "action": {
@@ -1016,8 +1004,7 @@
                 ],
                 "expected": [
                     "休息"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "post_delay": 1000,
@@ -1189,8 +1176,7 @@
                 ],
                 "expected": [
                     "确认"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "action": {
@@ -1220,8 +1206,7 @@
                 ],
                 "expected": [
                     "选择武将"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "action": {

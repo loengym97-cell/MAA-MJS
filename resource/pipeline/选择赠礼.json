@@ -94,8 +94,7 @@
                 ],
                 "expected": [
                     "接受谁的"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "focus": "选择赠礼",

@@ -48,24 +48,15 @@ _claimed_cat2_lock = threading.Lock()
 
 # ==================== 辅助函数 ====================
 
-# gift_config.json 读取缓存（按修改时间失效，避免每次 OCR 循环都读盘）
-_config_cache: dict = {"mtime": None, "data": None}
-
 
 # 读取自定义赠礼默认配置
 def _read_config() -> dict | None:
-    """读取 gift_config.json，失败或不存在时返回 None（带 mtime 缓存）"""
+    """读取 gift_config.json，失败或不存在时返回 None"""
     if not os.path.exists(CONFIG_PATH):
         return None
     try:
-        mtime = os.path.getmtime(CONFIG_PATH)
-        if _config_cache["mtime"] == mtime and _config_cache["data"] is not None:
-            return _config_cache["data"]
         with open(CONFIG_PATH, "r", encoding="utf-8") as f:
-            data = json.load(f)
-        _config_cache["mtime"] = mtime
-        _config_cache["data"] = data
-        return data
+            return json.load(f)
     except Exception:
         return None
 
@@ -295,7 +286,6 @@ class CheckNumberAndStop(CustomAction):
             JOCR(
                 roi=[239, 45, 42, 49],
                 expected=[],  # 可以留空匹配所有数字
-                only_rec=True,  # 单数字区域，跳过检测直接识别，更快
             ),
             image,
         )

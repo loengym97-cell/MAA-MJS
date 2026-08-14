@@ -27,8 +27,7 @@
                 ],
                 "expected": [
                     "下一步"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "action": {
@@ -61,8 +60,7 @@
                 ],
                 "expected": [
                     "取消"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "action": {
@@ -125,8 +123,7 @@
                 ],
                 "expected": [
                     "点击空白"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "action": {
@@ -157,8 +154,7 @@
                 ],
                 "expected": [
                     "确认"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "action": {
@@ -249,8 +245,7 @@
                 ],
                 "expected": [
                     "确认"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "action": {

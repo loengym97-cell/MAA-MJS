@@ -109,8 +109,7 @@
                 ],
                 "expected": [
                     "确认"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "action": {
@@ -139,8 +138,7 @@
                 ],
                 "expected": [
                     "点击空白"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "action": {
@@ -179,8 +177,7 @@
                 ],
                 "expected": [
                     "确认"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "action": {
@@ -211,8 +208,7 @@
                 ],
                 "expected": [
                     "领取奖励"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "action": {
@@ -242,8 +238,7 @@
                 ],
                 "expected": [
                     "领取奖励"
-                ],
-                "only_rec": true
+                ]
             }
         },
         "action": {
