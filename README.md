@@ -19,6 +19,7 @@
 
 ## 版本历史
 
+- **v1.3.1** — 回滚 only_rec（恢复 det+rec 完整识别，保障稳定性）；保留 GPU(DirectML) 推理加速
 - **v1.3.0** — 项目更名：《基于 MaaFramework 流水线语言与接口协议的游戏自动化研究项目》；文档清理（移除失效视频链接、致谢两位贡献者）
 - **v1.2.1** — 版本号同步（interface.json / README）
 - **v1.2.0** — OCR 加速：59 个固定按钮节点启用 only_rec（跳过文字检测直接识别）；agent 配置读取缓存；支持 GPU(DirectML) 推理加速（设置→性能，或 config/config.json 的 UseDirectML）
