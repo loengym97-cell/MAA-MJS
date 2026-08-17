@@ -318,7 +318,19 @@ class ClearHitCountAction(CustomAction):
         return CustomAction.RunResult(success=True)  
   
 # ============ 主循环盲点兜底 ============
-_fallback_state = {"count": 0, "last_ts": 0.0}
+# 盲点位置序列（720p 坐标）：依次尝试，覆盖常见弹窗关闭/确认区。
+# 每次"卡住触发"推进一个位置；主循环恢复正常（中间有节点命中）后从 ① 重新开始。
+_FALLBACK_POINTS = [
+    (960, 180),  # ① 右上角（弹窗 X / 关闭按钮区）
+    (960, 540),  # ② 右下（常见确认/关闭区，十常侍弹窗附近）
+    (640, 360),  # ③ 屏幕中心（点空白）
+    (640, 650),  # ④ 底部中央（选项区）
+    (480, 200),  # ⑤ 左上（弹窗关闭区）
+    (480, 540),  # ⑥ 左中（弹窗选项区）
+    (300, 400),  # ⑦ 左中偏上
+    (900, 400),  # ⑧ 右中
+]
+_fallback_state = {"count": 0, "last_ts": 0.0, "seq_idx": 0}
 
 
 @AgentServer.custom_action("SafeFallbackClick")
@@ -337,9 +349,28 @@ class SafeFallbackClick(CustomAction):
             )
         except Exception:
             params = {}
-        x = int(params.get("x", 960))
-        y = int(params.get("y", 180))
         interval = int(params.get("interval", 30))
+
+        # 盲点序列：优先自定义 points，其次兼容旧 x/y 单点，最后默认序列
+        points = _FALLBACK_POINTS
+        raw_points = params.get("points")
+        if raw_points:
+            try:
+                parsed = (
+                    json.loads(raw_points) if isinstance(raw_points, str) else raw_points
+                )
+                if (
+                    isinstance(parsed, list)
+                    and parsed
+                    and all(isinstance(p, (list, tuple)) and len(p) == 2 for p in parsed)
+                ):
+                    points = [(int(p[0]), int(p[1])) for p in parsed]
+            except Exception:
+                pass
+        elif "x" in params or "y" in params:
+            points = [
+                (int(params.get("x", 960)), int(params.get("y", 180))),
+            ]
 
         # 已托管（离开中/托管中）→ 不点任何地方，重置计数，继续等待战斗结束
         try:
@@ -356,17 +387,24 @@ class SafeFallbackClick(CustomAction):
             pass
 
         now = time.time()
-        # 距上次调用超过 5 秒 = 中间有别的节点执行过 → 重置连续计数
+        # 距上次调用超过 5 秒 = 中间有别的节点执行过 → 恢复正常 → 计数与序列都重置
         if now - _fallback_state["last_ts"] > 5.0:
             _fallback_state["count"] = 0
+            _fallback_state["seq_idx"] = 0
         _fallback_state["last_ts"] = now
         _fallback_state["count"] += 1
 
         if _fallback_state["count"] >= interval:
             _fallback_state["count"] = 0
+            idx = _fallback_state["seq_idx"]
+            px, py = points[idx % len(points)]
+            _fallback_state["seq_idx"] = idx + 1
             try:
-                context.tasker.controller.post_click(x, y)
-                print(f"[兜底点击] 主循环连续 {interval} 轮无识别且未托管，盲点 ({x},{y})")
+                context.tasker.controller.post_click(px, py)
+                print(
+                    f"[兜底点击] 主循环连续 {interval} 轮无识别且未托管，"
+                    f"盲点序列#{idx + 1}/{len(points)} ({px},{py})"
+                )
             except Exception as e:
                 print(f"[兜底点击] 点击失败: {e}")
 
