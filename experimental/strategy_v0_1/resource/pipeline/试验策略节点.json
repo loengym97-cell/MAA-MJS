@@ -1,0 +1,46 @@
+{
+  "试验版重置局状态": {
+    "recognition": { "type": "DirectHit" },
+    "action": {
+      "type": "Custom",
+      "param": { "custom_action": "trial_reset_run" }
+    },
+    "next": ["千里开局"]
+  },
+  "试验版巴清": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "roi": [407, 209, 374, 336],
+        "template": ["巴清.png"],
+        "order_by": "Score",
+        "threshold": 0.85
+      }
+    },
+    "action": { "type": "Click" },
+    "post_delay": 1000,
+    "next": ["试验版商店处理"]
+  },
+  "试验版吕不韦": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "roi": [407, 209, 374, 336],
+        "template": ["吕不韦.png"],
+        "order_by": "Score",
+        "threshold": 0.85
+      }
+    },
+    "action": { "type": "Click" },
+    "post_delay": 1000,
+    "next": ["试验版商店处理"]
+  },
+  "试验版商店处理": {
+    "recognition": { "type": "DirectHit" },
+    "action": {
+      "type": "Custom",
+      "param": { "custom_action": "trial_shop" }
+    },
+    "next": ["继续战斗"]
+  }
+}

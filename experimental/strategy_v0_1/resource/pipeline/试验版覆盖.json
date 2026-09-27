@@ -1,0 +1,167 @@
+{
+  "策略by兔兔从主页开局": {
+    "recognition": {"type": "DirectHit"},
+    "action": {"type": "DoNothing"},
+    "next": ["千里走单骑"]
+  },
+  "策略by兔兔地图续打": {
+    "recognition": {"type": "DirectHit"},
+    "action": {"type": "DoNothing"},
+    "next": ["继续战斗"]
+  },
+  "千里开局": {
+    "action": {
+      "type": "Custom",
+      "param": {"custom_action": "trial_open_run"}
+    },
+    "next": ["自定义选将", "退出选将", "开始挑战"],
+    "on_error": []
+  },
+  "开始挑战": {
+    "next": ["开始挑战", "初始战斗"]
+  },
+  "限制冲榜": {
+    "action": {"type": "DoNothing"}
+  },
+  "节点中检测限制冲榜": {
+    "action": {"type": "DoNothing"}
+  },
+  "继续战斗": {
+    "recognition": {
+      "type": "OCR",
+      "param": {
+        "roi": [105, 160, 210, 70],
+        "expected": ["当前挑战"]
+      }
+    },
+    "post_delay": 1000,
+    "next": [
+      "试验版赠礼详情",
+      "选择赠礼",
+      "属性变化",
+      "试验版商店页面",
+      "默认战斗",
+      "试验版巴清",
+      "试验版吕不韦",
+      "朏朏",
+      "十常侍",
+      "狗卡",
+      "诸葛亮",
+      "福袋",
+      "火堆",
+      "事件选项",
+      "事件战斗"
+    ],
+    "on_error": ["试验版常见界面巡检"]
+  },
+  "默认战斗": {
+    "next": [
+      "试验版赠礼详情", "选择赠礼", "属性变化", "试验版商店页面",
+      "领取奖励截图", "点击空白", "重复确认", "开始对局",
+      "默认战斗"
+    ],
+    "on_error": ["试验版常见界面巡检"]
+  },
+  "临时战斗": {
+    "next": [
+      "试验版赠礼详情", "试验版商店页面", "千里开局", "开始对局", "[JumpBack]设置", "继续战斗",
+      "点击空白", "点击空白图", "选择赠礼", "属性变化",
+      "战斗结束确认", "领取奖励截图", "重复确认", "事件选项",
+      "事件战斗", "兜底点击"
+    ]
+  },
+  "动态选择赠礼": {
+    "action": {
+      "type": "Custom",
+      "param": {"custom_action": "trial_gift"}
+    },
+    "focus": "动态选择赠礼",
+    "next": ["试验版赠礼详情", "属性变化", "继续战斗"],
+    "on_error": []
+  },
+  "试验版赠礼详情": {
+    "recognition": {
+      "type": "OCR",
+      "param": {"roi": [490, 570, 310, 100], "expected": ["一项赠礼"]}
+    },
+    "action": {
+      "type": "Custom",
+      "param": {"custom_action": "trial_gift_detail"}
+    },
+    "next": ["试验版赠礼详情", "选择赠礼", "属性变化", "继续战斗"],
+    "on_error": []
+  },
+  "试验版商店页面": {
+    "recognition": {
+      "type": "OCR",
+      "param": {"roi": [600, 100, 650, 110], "expected": ["信物专区"]}
+    },
+    "action": {
+      "type": "Custom",
+      "param": {"custom_action": "trial_shop"}
+    },
+    "next": ["继续战斗"],
+    "on_error": []
+  },
+  "试验版常见界面巡检": {
+    "recognition": {"type": "DirectHit"},
+    "action": {
+      "type": "Custom",
+      "param": {"custom_action": "trial_page_audit"}
+    },
+    "next": [
+      "试验版赠礼详情", "选择赠礼", "属性变化", "试验版商店页面",
+      "领取奖励截图", "点击空白", "重复确认", "战斗结束确认",
+      "千里开局", "开始对局", "检测托管", "事件选项", "事件战斗", "继续战斗"
+    ],
+    "on_error": []
+  },
+  "属性变化": {
+    "recognition": {
+      "type": "OCR",
+      "param": {
+        "roi": [530, 105, 680, 95],
+        "expected": ["武将技能", "武将信息"]
+      }
+    },
+    "action": {
+      "type": "Custom",
+      "param": {"custom_action": "trial_dismiss_stats"}
+    },
+    "next": ["属性变化", "事件确认", "继续战斗"],
+    "on_error": []
+  },
+  "点击空白": {
+    "recognition": {
+      "type": "OCR",
+      "param": {
+        "roi": [530, 490, 217, 81],
+        "expected": ["点击空白"]
+      }
+    },
+    "action": {
+      "type": "Click",
+      "param": {"target": [780, 569, 301, 86]}
+    },
+    "post_delay": 1110,
+    "rate_limit": 3000,
+    "next": ["点击空白", "试验版重置局状态"]
+  },
+  "点击空白图": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "roi": [530, 490, 217, 81],
+        "template": ["点击空白.png"],
+        "threshold": 0.7
+      }
+    },
+    "action": {
+      "type": "Click",
+      "param": {"target": [780, 569, 301, 86]}
+    },
+    "post_delay": 1110,
+    "rate_limit": 3000,
+    "next": ["点击空白图", "试验版重置局状态"]
+  }
+}

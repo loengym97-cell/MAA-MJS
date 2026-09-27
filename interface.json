@@ -8,7 +8,7 @@
  "license": "MIT",
  "welcome": "./resource/announcement/公告副栏.md",
  "github": "https://github.com/MaaXYZ/MaaFramework",
- "version": "v1.3.5",
+ "version": "v1.4.0",
  "mirrorchyan_rid": "Maa_mjs_ace",
  "mirrorchyan_multiplatform": true,
  "controller": [
@@ -35,6 +35,14 @@
    "path": [
     "./resource"
    ]
+  },
+  {
+   "name": "官服·策略by兔兔",
+   "path": [
+    "./resource",
+    "./experimental/strategy_v0_1/resource"
+   ],
+   "controller": ["安卓端"]
   }
  ],
  "option": {
@@ -228,7 +236,8 @@
   "child_exec": "python/python.exe",
   "child_args": [
    "-u",
-   "agent/main.py"
+   "experimental/strategy_v0_1/千里策略试验版.py",
+   "--agent"
   ]
  },
  "preset": [
@@ -251,12 +260,21 @@
   },
   {
    "name": "仅供学习交流，有问题请自行求助AI"
+  },
+  {
+   "name": "策略by兔兔",
+   "task": [
+    {
+     "name": "千里走单骑【策略by兔兔】从主页开局"
+    }
+   ]
   }
  ],
  "task": [
   {
    "name": "千里走单骑入口（多选一）",
    "entry": "千里走单骑",
+   "resource": ["官服"],
    "option": [
     "选将",
     "赠礼配置",
@@ -267,6 +285,7 @@
   {
    "name": "继续战斗入口（多选一）",
    "entry": "继续战斗",
+   "resource": ["官服"],
    "option": [
     "选将",
     "赠礼配置",
@@ -275,13 +294,28 @@
    "description": "继续战斗入口：在继续战斗内选择战斗或者事件时使用，可接着继续全自动打，\ncat1是自定义选信物，用英文逗号,隔开，cat2是自定义选驰援，用英文逗号,隔开\n仅供学习交流，有问题请自行求助AI"
   },
   {
+   "name": "千里走单骑【策略by兔兔】从主页开局",
+   "entry": "策略by兔兔从主页开局",
+   "resource": ["官服·策略by兔兔"],
+   "option": ["选将"],
+   "description": "策略by兔兔：从千里走单骑主页开局；优先高分信物和驰援，商店只买高分信物及行囊，不买武将牌。原策略独立保留。"
+  },
+  {
+   "name": "千里走单骑【策略by兔兔】地图续打",
+   "entry": "策略by兔兔地图续打",
+   "resource": ["官服·策略by兔兔"],
+   "description": "策略by兔兔：从选关地图续打。无法自动得知本局之前获得的信物，优先使用从主页开局。"
+  },
+  {
    "name": "巅峰赛开始挑战自动投降（多选一）",
    "entry": "开始巅峰赛挑战",
+   "resource": ["官服"],
    "description": "自动投降需要在巅峰赛开始挑战页面执行任务，全自动ban将选将投降\n仅供学习交流，有问题请自行求助AI"
   },
   {
    "name": "龚行天罚（多选一）",
    "entry": "创建房间",
+   "resource": ["官服"],
    "option": [
     "龚行天罚次数",
     "是否使用虎符增加统率值"
