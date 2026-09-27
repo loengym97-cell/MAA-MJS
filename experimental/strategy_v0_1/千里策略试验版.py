@@ -1,6 +1,7 @@
-"""千里走单骑「策略by兔兔」（策略试验版 v0.1）。
+"""千里走单骑「策略by兔兔」（v1.4.0 正式版）。
 
-在 v1.4.0 主界面中与原策略共存；选择专用资源时叠加本目录的试验节点。
+在主界面中与原策略共存；选择专用资源时叠加本目录的策略节点。
+目录名和节点名保留「试验版」仅为兼容既有入口。
 默认只打印计划；加 --run 才会连接安卓设备并操作游戏。
 """
 
@@ -905,7 +906,7 @@ def check_agent(state):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="千里走单骑策略by兔兔（试验版 v0.1）")
+    parser = argparse.ArgumentParser(description="千里走单骑策略by兔兔（v1.4.0 正式版）")
     parser.add_argument("--run", action="store_true", help="实际连接安卓设备并开始任务")
     parser.add_argument("--check-agent", action="store_true", help="离线验证资源与 Agent，不连接游戏")
     parser.add_argument("--agent", help=argparse.SUPPRESS)
@@ -937,11 +938,11 @@ def main():
         min_shop_score=args.min_shop_score,
         max_relic_per_shop=args.max_relic_per_shop,
     )
-    print("[试验版 v0.1] 商店信物优先级：")
+    print("[策略by兔兔 v1.4.0] 商店信物优先级：")
     for score, owner, relic in ranked_shop_relics(catalog, set()):
         if score >= state.min_shop_score:
             print(f"  {score} 分 {owner} → {relic}")
-    print("[试验版 v0.1] 商店不买武将牌；高分信物后买行囊，每次商店最多一件行囊。")
+    print("[策略by兔兔 v1.4.0] 商店不买武将牌；高分信物后买行囊，每次商店最多一件行囊。")
     if args.check_agent:
         check_agent(state)
         return 0
