@@ -1,0 +1,185 @@
+{
+  "策略by兔兔从主页开局": {
+    "recognition": {
+      "type": "DirectHit"
+    },
+    "action": {
+      "type": "DoNothing"
+    },
+    "next": [
+      "千里走单骑"
+    ]
+  },
+  "策略by兔兔地图续打": {
+    "recognition": {
+      "type": "DirectHit"
+    },
+    "action": {
+      "type": "DoNothing"
+    },
+    "next": [
+      "继续战斗"
+    ]
+  },
+  "试验版赠礼详情": {
+    "recognition": {
+      "type": "OCR",
+      "param": {
+        "roi": [
+          490,
+          570,
+          310,
+          100
+        ],
+        "expected": [
+          "一项赠礼"
+        ]
+      }
+    },
+    "action": {
+      "type": "Custom",
+      "param": {
+        "custom_action": "trial_gift_detail"
+      }
+    },
+    "next": [
+      "试验版赠礼详情",
+      "选择赠礼",
+      "属性变化",
+      "继续战斗"
+    ],
+    "on_error": []
+  },
+  "试验版商店页面": {
+    "recognition": {
+      "type": "OCR",
+      "param": {
+        "roi": [
+          600,
+          100,
+          650,
+          110
+        ],
+        "expected": [
+          "信物专区"
+        ]
+      }
+    },
+    "action": {
+      "type": "Custom",
+      "param": {
+        "custom_action": "trial_shop"
+      }
+    },
+    "next": [
+      "继续战斗"
+    ],
+    "on_error": []
+  },
+  "试验版常见界面巡检": {
+    "recognition": {
+      "type": "DirectHit"
+    },
+    "action": {
+      "type": "Custom",
+      "param": {
+        "custom_action": "trial_page_audit"
+      }
+    },
+    "next": [
+      "试验版赠礼详情",
+      "选择赠礼",
+      "属性变化",
+      "试验版商店页面",
+      "领取奖励截图",
+      "点击空白",
+      "重复确认",
+      "战斗结束确认",
+      "千里开局",
+      "开始对局",
+      "检测托管",
+      "事件选项",
+      "事件战斗",
+      "继续战斗"
+    ],
+    "on_error": []
+  },
+  "试验版重置局状态": {
+    "recognition": {
+      "type": "DirectHit"
+    },
+    "action": {
+      "type": "Custom",
+      "param": {
+        "custom_action": "trial_reset_run"
+      }
+    },
+    "next": [
+      "千里开局"
+    ]
+  },
+  "试验版巴清": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "roi": [
+          407,
+          209,
+          374,
+          336
+        ],
+        "template": [
+          "巴清.png"
+        ],
+        "order_by": "Score",
+        "threshold": 0.85
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "post_delay": 1000,
+    "next": [
+      "试验版商店处理"
+    ]
+  },
+  "试验版吕不韦": {
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "roi": [
+          407,
+          209,
+          374,
+          336
+        ],
+        "template": [
+          "吕不韦.png"
+        ],
+        "order_by": "Score",
+        "threshold": 0.85
+      }
+    },
+    "action": {
+      "type": "Click"
+    },
+    "post_delay": 1000,
+    "next": [
+      "试验版商店处理"
+    ]
+  },
+  "试验版商店处理": {
+    "recognition": {
+      "type": "DirectHit"
+    },
+    "action": {
+      "type": "Custom",
+      "param": {
+        "custom_action": "trial_shop"
+      }
+    },
+    "next": [
+      "继续战斗"
+    ]
+  }
+}
