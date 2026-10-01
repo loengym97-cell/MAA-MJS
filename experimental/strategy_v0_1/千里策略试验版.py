@@ -1,4 +1,4 @@
-"""千里走单骑「策略by兔兔」（v1.4.1 正式版）。
+"""千里走单骑「策略by兔兔」（v1.4.2 正式版）。
 
 在主界面中与原策略共存；选择专用资源时叠加本目录的策略节点。
 目录名和节点名保留「试验版」仅为兼容既有入口。
@@ -42,6 +42,18 @@ BUNDLED_RELICS = {
     "张春华": "簪刀", "司马懿": "龟甲", "孙策": "调兵符",
     "范增": "玉珏", "刘禅": "金蝉", "鲁肃": "箭盾",
     "曹丕": "典论", "虞姬": "美人草",
+    "霍去病": "祭天金人", "李广": "大黄", "刘彻": "五铢钱",
+}
+# 新增人物中，只有用户明确给权重的信物参与主动购买。
+ADDED_GENERAL_RELIC_SCORE = {
+    "刘彻": 1, "卫青": 0, "霍去病": 2, "李广": 3,
+    "董仲舒": 0, "张骞": 0, "陈阿娇": 0, "卫子夫": 0,
+    "孙权": 0,
+}
+ADDED_GENERAL_STYLES = {
+    "刘彻": "受伤减免", "卫青": "坐骑杀", "霍去病": "技能成长",
+    "李广": "出杀连击", "董仲舒": "战法牌加伤", "张骞": "手牌交换",
+    "陈阿娇": "复制", "卫子夫": "武将牌复制", "孙权": "张骞驰援组合",
 }
 RELIC_SCORE = {
     **{name: 4 for name in DISCARD_RELICS},
@@ -50,14 +62,19 @@ RELIC_SCORE = {
     "马超": 3, "贾诩": 3, "王异": 3, "刘表": 3,
     "甘宁": 3, "刘邦": 3, "许褚": 3,
     "张春华": 3, "司马懿": 3, "孙策": 3,
+    **ADDED_GENERAL_RELIC_SCORE,
 }
 SUPPORT_SCORE = {
     "范增": 4, "龙且": 4, "刘禅": 4, "马超": 4,
     "萧何": 3, "鲁肃": 3, "曹丕": 3, "周勃": 3, "虞姬": 3,
+    # 张骞＋孙权、刘彻＋周勃互相配合；先拿到其中一人才能凑齐组合。
+    "张骞": 3, "孙权": 3, "刘彻": 3, "卫子夫": 3,
 }
+FUNDING_SCORE = {"刘彻": 2, "陈阿娇": 2, "卫子夫": 2, "霍去病": 2}
 RELIC_ALIASES = {
     "十常侍": ("西园帐薄", "西园账簿", "西园帐簿", "西园账薄"),
 }
+GENERAL_ALIASES = {"甄宓": "甄姬", "子桓": "曹丕", "公嗣": "刘禅"}
 GIFT_ROI = (150, 490, 1000, 190)
 GIFT_DETAIL_ROI = (380, 120, 540, 455)
 GIFT_KINDS = ("信物", "驰援", "资助", "武将牌", "并肩作战")
@@ -72,9 +89,12 @@ def clean(value: str) -> str:
 
 def general_name(value: str, catalog: dict[str, str]) -> str | None:
     text = clean(value)
-    for name in sorted(catalog, key=len, reverse=True):
-        if text == name or text == name + "赠礼":
-            return name
+    if text.endswith("赠礼"):
+        name = text.removesuffix("赠礼")
+        if re.fullmatch(r"[\u4e00-\u9fff]{1,6}", name):
+            return GENERAL_ALIASES.get(name, name)
+    if text in catalog:
+        return GENERAL_ALIASES.get(text, text)
     return None
 
 
@@ -102,30 +122,43 @@ def load_catalog() -> dict[str, str]:
         book.close()
 
 
-def rank_people(names: list[str], owned: set[str]) -> list[str]:
+def rank_people(names: list[str], owned_relics: set[str], owned_supports: set[str]) -> list[str]:
     """按可获得的最高价值排序，同分时优先未持有的高分信物。"""
     return sorted(
         names,
         key=lambda name: (
-            max(SUPPORT_SCORE.get(name, 0), 0 if name in owned else RELIC_SCORE.get(name, 0)),
-            0 if name in owned else RELIC_SCORE.get(name, 0),
-            SUPPORT_SCORE.get(name, 0),
+            max(0 if name in owned_supports else SUPPORT_SCORE.get(name, 0),
+                0 if name in owned_relics else RELIC_SCORE.get(name, 0),
+                FUNDING_SCORE.get(name, 0)),
+            0 if name in owned_relics else RELIC_SCORE.get(name, 0),
+            0 if name in owned_supports else SUPPORT_SCORE.get(name, 0),
+            FUNDING_SCORE.get(name, 0),
         ),
         reverse=True,
     )
 
 
-def choose_gift_kind(name: str, available: set[str], owned: set[str]) -> str | None:
-    relic = 0 if name in owned else RELIC_SCORE.get(name, 0)
-    support = SUPPORT_SCORE.get(name, 0)
+def choose_gift_kind(name: str, available: set[str], owned_relics: set[str],
+                     owned_supports: set[str] | None = None) -> str | None:
+    if owned_supports is None:
+        owned_supports = set()
+    relic = 0 if name in owned_relics else RELIC_SCORE.get(name, 0)
+    support = 0 if name in owned_supports else SUPPORT_SCORE.get(name, 0)
     if "信物" in available and relic >= 3 and relic >= support:
         return "信物"
     if "驰援" in available and support >= 3:
         return "驰援"
     if "信物" in available and relic >= 3:
         return "信物"
+    if "资助" in available and FUNDING_SCORE.get(name, 0):
+        return "资助"
+    if "信物" in available and relic >= 2:
+        return "信物"
     # 非目标武将也要完成强制选礼；优先不占信物格子的收益。
-    for kind in ("驰援", "资助", "并肩作战", "武将牌"):
+    fallback = ("资助", "并肩作战", "武将牌", "信物", "驰援") if name in owned_supports else (
+        "驰援", "资助", "并肩作战", "武将牌", "信物"
+    )
+    for kind in fallback:
         if kind in available:
             return kind
     return None
@@ -136,7 +169,7 @@ def ranked_shop_relics(catalog: dict[str, str], owned: set[str]) -> list[tuple[i
         (
             (score, name, relic)
             for name, score in RELIC_SCORE.items()
-            if score >= 3 and name in catalog and name not in owned
+            if score >= 3 and catalog.get(name) and name not in owned
             for relic in (catalog[name],)
         ),
         key=lambda item: (-item[0], item[1]),
@@ -145,17 +178,35 @@ def ranked_shop_relics(catalog: dict[str, str], owned: set[str]) -> list[tuple[i
 
 def check_policy(catalog):
     assert general_name("萧何赠礼", catalog) == "萧何"
+    assert general_name("甄宓赠礼", catalog) == "甄姬"
+    assert general_name("董仲舒赠礼", catalog) == "董仲舒"
+    assert general_name("子桓赠礼", catalog) == "曹丕"
     assert choose_gift_kind("萧何", {"信物", "驰援"}, set()) == "信物"
     assert choose_gift_kind("萧何", {"信物", "驰援"}, {"萧何"}) == "驰援"
-    assert choose_gift_kind("项羽", {"信物"}, set()) is None
+    assert choose_gift_kind("项羽", {"信物"}, set()) == "信物"
+    assert choose_gift_kind("刘禅", {"信物"}, set(), {"刘禅"}) == "信物"
+    assert choose_gift_kind("刘彻", {"信物", "资助"}, set()) == "资助"
+    assert choose_gift_kind("刘彻", {"驰援", "资助"}, set()) == "驰援"
+    assert choose_gift_kind("刘彻", {"驰援", "资助"}, set(), {"刘彻"}) == "资助"
+    assert choose_gift_kind("李广", {"信物", "资助"}, set()) == "信物"
+    assert choose_gift_kind("张骞", {"驰援", "信物"}, set()) == "驰援"
+    assert choose_gift_kind("孙权", {"驰援", "信物"}, set()) == "驰援"
+    assert choose_gift_kind("陈阿娇", {"驰援", "资助"}, set()) == "资助"
+    assert choose_gift_kind("卫子夫", {"驰援", "资助"}, set()) == "驰援"
+    assert choose_gift_kind("霍去病", {"信物", "资助"}, set()) == "资助"
+    assert choose_gift_kind("霍去病", {"信物", "驰援"}, set()) == "信物"
     assert catalog["十常侍"] == "西园帐薄"
     assert catalog["吕布"] == "飞将翎"
+    assert catalog["霍去病"] == "祭天金人"
+    assert catalog["李广"] == "大黄"
+    assert catalog["刘彻"] == "五铢钱"
 
 
 @dataclass
 class TrialState:
     catalog: dict[str, str]
     owned_relics: set[str] = field(default_factory=set)
+    owned_supports: set[str] = field(default_factory=set)
     min_shop_score: int = 3
     max_relic_per_shop: int = 2
 
@@ -217,7 +268,8 @@ class TrialReset(CustomAction):
 
     def run(self, context, argv):
         self.state.owned_relics.clear()
-        print("[试验版] 新一局：重置信物记录")
+        self.state.owned_supports.clear()
+        print("[试验版] 新一局：重置信物和驰援记录")
         return True
 
 
@@ -351,7 +403,7 @@ class TrialGift(CustomAction):
         options, available = self._wait_detail_options(context, name)
         if options is None:
             return False
-        kind = choose_gift_kind(name, available, self.state.owned_relics)
+        kind = choose_gift_kind(name, available, self.state.owned_relics, self.state.owned_supports)
         if not kind:
             print(f"[试验版] {name} 直接赠礼页无可安全选择的礼物：{[r.text for r in options]}")
             return False
@@ -360,6 +412,8 @@ class TrialGift(CustomAction):
             return False
         if kind == "信物":
             self.state.owned_relics.add(name)
+        elif kind == "驰援":
+            self.state.owned_supports.add(name)
         return True
 
     def run(self, context, argv):
@@ -391,10 +445,19 @@ class TrialGift(CustomAction):
                     if name:
                         offers[name] = result
             if not offers:
-                print("[试验版] 赠礼页没有识别出 XLSX 中的武将，停止本次任务")
+                print("[试验版] 赠礼页没有识别出可点击的人物名称，停止本次任务")
                 return False
 
-            for name in rank_people(list(offers), self.state.owned_relics):
+            candidates = [
+                name for name in offers
+                if name not in self.state.owned_supports
+                or (name not in self.state.owned_relics and RELIC_SCORE.get(name, 0) >= 3)
+                or FUNDING_SCORE.get(name, 0) > 0
+            ]
+            if not candidates:
+                print("[试验版] 三人都没有剩余高优先级赠礼，选择其中一人完成强制赠礼")
+                candidates = list(offers)
+            for name in rank_people(candidates, self.state.owned_relics, self.state.owned_supports):
                 print(f"[试验版] 查看 {name} 的赠礼")
                 options, available = None, set()
                 for open_attempt in range(1, RETRY_LIMIT + 1):
@@ -421,7 +484,7 @@ class TrialGift(CustomAction):
                 if options is None:
                     print(f"[试验版] {name} 入口尝试 {RETRY_LIMIT} 次仍未打开")
                     return False
-                kind = choose_gift_kind(name, available, self.state.owned_relics)
+                kind = choose_gift_kind(name, available, self.state.owned_relics, self.state.owned_supports)
                 if not kind:
                     print(f"[试验版] {name} 没识别到可选礼物：{[r.text for r in options]}")
                     return False
@@ -430,6 +493,8 @@ class TrialGift(CustomAction):
                     return False
                 if kind == "信物":
                     self.state.owned_relics.add(name)
+                elif kind == "驰援":
+                    self.state.owned_supports.add(name)
                 break
         print("[试验版] 赠礼界面超过 4 轮仍未结束")
         return False
@@ -906,7 +971,7 @@ def check_agent(state):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="千里走单骑策略by兔兔（v1.4.1 正式版）")
+    parser = argparse.ArgumentParser(description="千里走单骑策略by兔兔（v1.4.2 正式版）")
     parser.add_argument("--run", action="store_true", help="实际连接安卓设备并开始任务")
     parser.add_argument("--check-agent", action="store_true", help="离线验证资源与 Agent，不连接游戏")
     parser.add_argument("--agent", help=argparse.SUPPRESS)
@@ -926,23 +991,30 @@ def main():
     check_policy(catalog)
     if args.max_relic_per_shop < 0:
         raise ValueError("--max-relic-per-shop 不能小于 0")
-    missing = sorted((RELIC_SCORE.keys() | SUPPORT_SCORE.keys()) - catalog.keys())
+    missing = sorted((RELIC_SCORE.keys() | SUPPORT_SCORE.keys()) - catalog.keys() - ADDED_GENERAL_RELIC_SCORE.keys())
     if missing:
         raise RuntimeError(f"评分表有武将未在 XLSX 找到：{missing}")
+    unknown_shop_names = sorted(
+        name for name, score in ADDED_GENERAL_RELIC_SCORE.items()
+        if score >= args.min_shop_score and not catalog.get(name)
+    )
+    if unknown_shop_names:
+        print(f"[试验版] 信物商店名未确认，暂不自动购买：{unknown_shop_names}")
     owned = {clean(name) for name in args.owned_relics.split(",") if clean(name)}
-    if owned - catalog.keys():
-        raise ValueError(f"--owned-relics 中没有 XLSX 对应的武将：{sorted(owned - catalog.keys())}")
+    known_generals = catalog.keys() | ADDED_GENERAL_RELIC_SCORE.keys()
+    if owned - known_generals:
+        raise ValueError(f"--owned-relics 中没有资料的武将：{sorted(owned - known_generals)}")
     state = TrialState(
         catalog=catalog,
         owned_relics=owned,
         min_shop_score=args.min_shop_score,
         max_relic_per_shop=args.max_relic_per_shop,
     )
-    print("[策略by兔兔 v1.4.1] 商店信物优先级：")
+    print("[策略by兔兔 v1.4.2] 商店信物优先级：")
     for score, owner, relic in ranked_shop_relics(catalog, set()):
         if score >= state.min_shop_score:
             print(f"  {score} 分 {owner} → {relic}")
-    print("[策略by兔兔 v1.4.1] 商店不买武将牌；高分信物后买行囊，每次商店最多一件行囊。")
+    print("[策略by兔兔 v1.4.2] 商店不买武将牌；高分信物后买行囊，每次商店最多一件行囊。")
     if args.check_agent:
         check_agent(state)
         return 0
