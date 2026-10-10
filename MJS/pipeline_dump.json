@@ -1,0 +1,1372 @@
+{
+ "临时战斗.json": {
+  "临时战斗": {
+   "reco": "DirectHit(默认)",
+   "act": null,
+   "target": null,
+   "next": [
+    "开始对局",
+    "[JumpBack]设置",
+    "点击空白",
+    "点击空白图",
+    "选择赠礼",
+    "属性变化",
+    "战斗结束确认",
+    "领取奖励截图",
+    "重复确认",
+    "事件战斗"
+   ],
+   "oe": [
+    "继续战斗"
+   ],
+   "timeout": null,
+   "rate": null
+  },
+  "战斗结束确认": {
+   "reco": "OCR",
+   "roi": [
+    550,
+    546,
+    170,
+    67
+   ],
+   "exp": [
+    "确认"
+   ],
+   "act": "Click",
+   "target": null,
+   "next": [
+    "战斗结束确认",
+    "属性变化"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  },
+  "点击空白": {
+   "reco": "OCR",
+   "roi": [
+    530,
+    490,
+    217,
+    81
+   ],
+   "exp": [
+    "点击空白"
+   ],
+   "act": "Click",
+   "target": [
+    780,
+    569,
+    301,
+    86
+   ],
+   "next": [
+    "点击空白",
+    "千里开局"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": 3000
+  },
+  "重复确认": {
+   "reco": "OCR",
+   "roi": [
+    599,
+    604,
+    79,
+    46
+   ],
+   "exp": [
+    "确认"
+   ],
+   "act": "Click",
+   "target": null,
+   "next": [
+    "临时战斗"
+   ],
+   "oe": null,
+   "timeout": 6000,
+   "rate": 3000
+  },
+  "领取奖励": {
+   "reco": "OCR",
+   "roi": [
+    544,
+    596,
+    192,
+    62
+   ],
+   "exp": [
+    "领取奖励"
+   ],
+   "act": "Click",
+   "target": null,
+   "next": [
+    "领取奖励",
+    "点击空白"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  },
+  "领取奖励截图": {
+   "reco": "OCR",
+   "roi": [
+    544,
+    596,
+    192,
+    62
+   ],
+   "exp": [
+    "领取奖励"
+   ],
+   "act": "Custom",
+   "target": null,
+   "next": [
+    "领取奖励"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  },
+  "点击空白图": {
+   "reco": "TemplateMatch",
+   "roi": [
+    530,
+    490,
+    217,
+    81
+   ],
+   "tpl": [
+    "点击空白.png"
+   ],
+   "thr": 0.7,
+   "act": "Click",
+   "target": [
+    780,
+    569,
+    301,
+    86
+   ],
+   "next": [
+    "点击空白图",
+    "千里开局"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": 3000
+  }
+ },
+ "battle/战斗.json": {
+  "下一步": {
+   "reco": "OCR",
+   "roi": [
+    580,
+    612,
+    120,
+    49
+   ],
+   "exp": [
+    "下一步"
+   ],
+   "act": "Click",
+   "target": null,
+   "next": [
+    "确认"
+   ],
+   "oe": [
+    "下一步"
+   ],
+   "timeout": 6000,
+   "rate": null
+  },
+  "关闭": {
+   "reco": "OCR",
+   "roi": [
+    630,
+    380,
+    160,
+    100
+   ],
+   "exp": [
+    "取消"
+   ],
+   "act": "Click",
+   "target": null,
+   "next": [
+    "关闭",
+    "设置",
+    "托管"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  },
+  "托管": {
+   "reco": "TemplateMatch",
+   "roi": [
+    1211,
+    148,
+    45,
+    42
+   ],
+   "tpl": [
+    "托管.png"
+   ],
+   "thr": null,
+   "act": "Click",
+   "target": null,
+   "next": [
+    "验证托管"
+   ],
+   "oe": [
+    "托管"
+   ],
+   "timeout": 5000,
+   "rate": null
+  },
+  "点击空白下一步": {
+   "reco": "OCR",
+   "roi": [
+    520,
+    623,
+    236,
+    41
+   ],
+   "exp": [
+    "点击空白"
+   ],
+   "act": "Click",
+   "target": null,
+   "next": [
+    "下一步",
+    "点击空白下一步",
+    "确认"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  },
+  "确认": {
+   "reco": "OCR",
+   "roi": [
+    599,
+    604,
+    79,
+    46
+   ],
+   "exp": [
+    "确认"
+   ],
+   "act": "Click",
+   "target": null,
+   "next": null,
+   "oe": null,
+   "timeout": 6000,
+   "rate": 3000
+  },
+  "设置": {
+   "reco": "TemplateMatch",
+   "roi": [
+    1202,
+    60,
+    57,
+    55
+   ],
+   "tpl": [
+    "设置.png"
+   ],
+   "thr": null,
+   "act": "Click",
+   "target": null,
+   "next": [
+    "关闭",
+    "设置",
+    "托管"
+   ],
+   "oe": null,
+   "timeout": 15000,
+   "rate": null
+  },
+  "长时间未胜利投降": {
+   "reco": "TemplateMatch",
+   "roi": [
+    1209,
+    221,
+    48,
+    62
+   ],
+   "tpl": [
+    "长时间未胜利投降.png"
+   ],
+   "thr": null,
+   "act": "Click",
+   "target": null,
+   "next": [
+    "长时间确认投降"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  },
+  "长时间确认投降": {
+   "reco": "OCR",
+   "roi": [
+    490,
+    441,
+    98,
+    36
+   ],
+   "exp": [
+    "确认"
+   ],
+   "act": "Click",
+   "target": null,
+   "next": [
+    "点击空白下一步"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  },
+  "验证托管": {
+   "reco": "OCR",
+   "roi": [
+    472,
+    533,
+    133,
+    111
+   ],
+   "exp": [
+    "离开中"
+   ],
+   "act": null,
+   "target": null,
+   "next": [
+    "点击空白下一步",
+    "[JumpBack]点击空白图"
+   ],
+   "oe": [
+    "长时间未胜利投降"
+   ],
+   "timeout": 300000,
+   "rate": 3000
+  }
+ },
+ "继续挑战.json": {
+  "事件战斗": {
+   "reco": "OCR",
+   "roi": [
+    466,
+    534,
+    370,
+    87
+   ],
+   "exp": [
+    "与"
+   ],
+   "act": "Click",
+   "target": null,
+   "next": [
+    "临时战斗"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  },
+  "事件确认": {
+   "reco": "OCR",
+   "roi": [
+    572,
+    542,
+    121,
+    73
+   ],
+   "exp": [
+    "确认"
+   ],
+   "act": "Click",
+   "target": null,
+   "next": [
+    "事件确认",
+    "继续战斗",
+    "临时战斗",
+    "属性变化"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  },
+  "事件选项": {
+   "reco": "OCR",
+   "roi": [
+    62,
+    541,
+    1099,
+    49
+   ],
+   "exp": [
+    "不关我事",
+    "无视",
+    "杀帅",
+    "假意应允",
+    "回绝",
+    "密道撤离",
+    "好心规劝",
+    "大声恐吓",
+    "在暗处",
+    "让她离开",
+    "搜查船只",
+    "披甲上阵",
+    "试图叫醒",
+    "另谋他策",
+    "另寻他人",
+    "官府告发",
+    "袖手旁观",
+    "拒绝迷信",
+    "同意",
+    "武",
+    "分粮诱敌",
+    "条件",
+    "一个",
+    "要这",
+    "我？",
+    "海外",
+    "他法"
+   ],
+   "act": "Click",
+   "target": null,
+   "next": [
+    "事件选项",
+    "属性变化",
+    "事件确认",
+    "继续战斗"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  },
+  "停止转动": {
+   "reco": "OCR",
+   "roi": [
+    771,
+    533,
+    115,
+    56
+   ],
+   "exp": [
+    "停止转动"
+   ],
+   "act": "Click",
+   "target": null,
+   "next": [
+    "继续战斗",
+    "停止转动"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  },
+  "偶遇朏朏": {
+   "reco": "OCR",
+   "roi": [
+    550,
+    173,
+    118,
+    303
+   ],
+   "exp": [
+    "我来帮你",
+    "讨价还价",
+    "快睡午觉"
+   ],
+   "act": "Click",
+   "target": null,
+   "next": [
+    "继续战斗",
+    "偶遇朏朏"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  },
+  "十常侍": {
+   "reco": "TemplateMatch",
+   "roi": [
+    407,
+    209,
+    374,
+    336
+   ],
+   "tpl": [
+    "十常侍.png"
+   ],
+   "thr": null,
+   "act": "Click",
+   "target": null,
+   "next": [
+    "十常侍选择事件",
+    "十常侍"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  },
+  "十常侍的蛊惑": {
+   "reco": "OCR",
+   "roi": [
+    523,
+    173,
+    544,
+    374
+   ],
+   "exp": [
+    "你获得的战法牌全部转化为天雷",
+    "你无法获得太平百钱",
+    "你无法打出桃",
+    "你无法打出装备牌"
+   ],
+   "act": "Click",
+   "target": null,
+   "next": [
+    "[JumpBack]节点中检测限制冲榜",
+    "继续战斗"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  },
+  "十常侍选择事件": {
+   "reco": "OCR",
+   "roi": [
+    385,
+    585,
+    182,
+    56
+   ],
+   "exp": [
+    "选择事件"
+   ],
+   "act": "Click",
+   "target": null,
+   "next": [
+    "十常侍选择事件",
+    "十常侍重置冲榜限制"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  },
+  "十常侍重置冲榜限制": {
+   "reco": "DirectHit(默认)",
+   "act": "Custom",
+   "target": null,
+   "next": [
+    "十常侍的蛊惑"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  },
+  "取消购买": {
+   "reco": "OCR",
+   "roi": [
+    603,
+    173,
+    75,
+    29
+   ],
+   "exp": [
+    "购买"
+   ],
+   "act": "Click",
+   "target": [
+    741,
+    483,
+    69,
+    25
+   ],
+   "next": [
+    "退出商店"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  },
+  "吕不韦": {
+   "reco": "TemplateMatch",
+   "roi": [
+    407,
+    209,
+    374,
+    336
+   ],
+   "tpl": [
+    "吕不韦.png"
+   ],
+   "thr": null,
+   "act": "Click",
+   "target": null,
+   "next": [
+    "退出商店",
+    "吕不韦",
+    "取消购买"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": 1000
+  },
+  "商店重置冲榜限制": {
+   "reco": "DirectHit(默认)",
+   "act": "Custom",
+   "target": null,
+   "next": [
+    "退出提示"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  },
+  "属性变化": {
+   "reco": "OCR",
+   "roi": [
+    563,
+    114,
+    143,
+    60
+   ],
+   "exp": [
+    "武将技能"
+   ],
+   "act": "Click",
+   "target": [
+    268,
+    533,
+    780,
+    121
+   ],
+   "next": [
+    "事件确认",
+    "继续战斗"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  },
+  "巴清": {
+   "reco": "TemplateMatch",
+   "roi": [
+    407,
+    209,
+    374,
+    336
+   ],
+   "tpl": [
+    "巴清.png"
+   ],
+   "thr": null,
+   "act": "Click",
+   "target": null,
+   "next": [
+    "退出商店",
+    "巴清",
+    "取消购买"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": 1000
+  },
+  "开始对局": {
+   "reco": "OCR",
+   "roi": [
+    376,
+    588,
+    189,
+    46
+   ],
+   "exp": [
+    "开始对局"
+   ],
+   "act": "Click",
+   "target": null,
+   "next": [
+    "临时战斗",
+    "开始对局"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  },
+  "战斗事件": {
+   "reco": "OCR",
+   "roi": [
+    61,
+    541,
+    1115,
+    71
+   ],
+   "exp": [
+    "还是走吧",
+    "连夜抓紧",
+    "给钱吧",
+    "不予搭理",
+    "径直离去",
+    "人间之事"
+   ],
+   "act": "Click",
+   "target": null,
+   "next": [
+    "事件确认",
+    "事件战斗",
+    "战斗事件",
+    "继续战斗"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  },
+  "拒绝投喂": {
+   "reco": "OCR",
+   "roi": [
+    560,
+    181,
+    91,
+    37
+   ],
+   "exp": [
+    "拒绝投喂"
+   ],
+   "act": "Click",
+   "target": null,
+   "next": [
+    "停止转动",
+    "拒绝投喂"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  },
+  "朏朏": {
+   "reco": "TemplateMatch",
+   "roi": [
+    407,
+    209,
+    374,
+    336
+   ],
+   "tpl": [
+    "朏朏.png"
+   ],
+   "thr": null,
+   "act": "Click",
+   "target": null,
+   "next": [
+    "朏朏选择事件",
+    "朏朏"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  },
+  "朏朏选择事件": {
+   "reco": "OCR",
+   "roi": [
+    385,
+    585,
+    182,
+    56
+   ],
+   "exp": [
+    "选择事件"
+   ],
+   "act": "Click",
+   "target": null,
+   "next": [
+    "偶遇朏朏",
+    "朏朏选择事件"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  },
+  "本次登录不再提示": {
+   "reco": "OCR",
+   "roi": [
+    582,
+    415,
+    146,
+    40
+   ],
+   "exp": [
+    "不再提示"
+   ],
+   "act": "Click",
+   "target": [
+    559,
+    425,
+    15,
+    13
+   ],
+   "next": null,
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  },
+  "火堆": {
+   "reco": "TemplateMatch",
+   "roi": [
+    407,
+    209,
+    374,
+    336
+   ],
+   "tpl": [
+    "火堆.png"
+   ],
+   "thr": null,
+   "act": "Click",
+   "target": null,
+   "next": [
+    "火堆选择",
+    "火堆"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  },
+  "火堆选择": {
+   "reco": "OCR",
+   "roi": [
+    85,
+    533,
+    519,
+    44
+   ],
+   "exp": [
+    "以逸待劳",
+    "稳中求进",
+    "固本培元",
+    "劫营速战"
+   ],
+   "act": "Click",
+   "target": null,
+   "next": [
+    "事件战斗",
+    "事件确认",
+    "继续战斗",
+    "属性变化"
+   ],
+   "oe": null,
+   "timeout": 3000,
+   "rate": null
+  },
+  "点击继续": {
+   "reco": "OCR",
+   "roi": [
+    553,
+    595,
+    186,
+    71
+   ],
+   "exp": [
+    "请点击继续"
+   ],
+   "act": "Click",
+   "target": null,
+   "next": [
+    "点击继续",
+    "属性变化",
+    "继续战斗"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  },
+  "狗卡": {
+   "reco": "TemplateMatch",
+   "roi": [
+    407,
+    209,
+    374,
+    336
+   ],
+   "tpl": [
+    "狗卡.png"
+   ],
+   "thr": null,
+   "act": "Click",
+   "target": null,
+   "next": [
+    "狗卡选择事件",
+    "狗卡"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  },
+  "狗卡选择事件": {
+   "reco": "OCR",
+   "roi": [
+    401,
+    589,
+    147,
+    49
+   ],
+   "exp": [
+    "选择事件"
+   ],
+   "act": "Click",
+   "target": null,
+   "next": [
+    "拒绝投喂",
+    "狗卡选择事件"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  },
+  "福袋": {
+   "reco": "TemplateMatch",
+   "roi": [
+    407,
+    209,
+    374,
+    336
+   ],
+   "tpl": [
+    "福袋.png"
+   ],
+   "thr": null,
+   "act": "Click",
+   "target": null,
+   "next": [
+    "事件选项",
+    "福袋",
+    "项羽事件",
+    "战斗事件"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  },
+  "突发更新": {
+   "reco": "OCR",
+   "roi": [
+    699,
+    454,
+    62,
+    37
+   ],
+   "exp": [
+    "取消"
+   ],
+   "act": "Click",
+   "target": null,
+   "next": null,
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  },
+  "继续战斗": {
+   "reco": "OCR",
+   "roi": [
+    916,
+    152,
+    51,
+    34
+   ],
+   "exp": [
+    "休息"
+   ],
+   "act": null,
+   "target": null,
+   "next": [
+    "默认战斗",
+    "巴清",
+    "吕不韦",
+    "朏朏",
+    "十常侍",
+    "狗卡",
+    "诸葛亮",
+    "福袋",
+    "火堆",
+    "事件战斗",
+    "属性变化"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  },
+  "节点中检测限制冲榜": {
+   "reco": "DirectHit",
+   "act": "Custom",
+   "target": null,
+   "next": null,
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  },
+  "诸葛亮": {
+   "reco": "TemplateMatch",
+   "roi": [
+    407,
+    209,
+    374,
+    336
+   ],
+   "tpl": [
+    "诸葛亮.png"
+   ],
+   "thr": null,
+   "act": "Click",
+   "target": null,
+   "next": [
+    "选择武将",
+    "诸葛亮"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  },
+  "诸葛亮事件": {
+   "reco": "OCR",
+   "roi": [
+    696,
+    144,
+    400,
+    168
+   ],
+   "exp": [
+    "占星术士"
+   ],
+   "act": "Click",
+   "target": [
+    886,
+    295,
+    81,
+    116
+   ],
+   "next": [
+    "点击继续",
+    "诸葛亮事件"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  },
+  "退出商店": {
+   "reco": "OCR",
+   "roi": [
+    623,
+    251,
+    577,
+    301
+   ],
+   "exp": [
+    "武将牌"
+   ],
+   "act": "Click",
+   "target": [
+    1202,
+    79,
+    51,
+    24
+   ],
+   "next": [
+    "退出商店",
+    "取消购买",
+    "商店重置冲榜限制"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  },
+  "退出提示": {
+   "reco": "OCR",
+   "roi": [
+    480,
+    436,
+    122,
+    46
+   ],
+   "exp": [
+    "确认"
+   ],
+   "act": "Click",
+   "target": null,
+   "next": [
+    "[JumpBack]节点中检测限制冲榜",
+    "继续战斗",
+    "退出提示"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  },
+  "选择武将": {
+   "reco": "OCR",
+   "roi": [
+    382,
+    588,
+    184,
+    46
+   ],
+   "exp": [
+    "选择武将"
+   ],
+   "act": "Click",
+   "target": null,
+   "next": [
+    "诸葛亮事件",
+    "选择武将"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  },
+  "项羽事件": {
+   "reco": "OCR",
+   "roi": [
+    62,
+    541,
+    1099,
+    49
+   ],
+   "exp": [
+    "坚持留下"
+   ],
+   "act": "Click",
+   "target": null,
+   "next": [
+    "临时战斗"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  },
+  "默认战斗": {
+   "reco": "TemplateMatch",
+   "roi": [
+    398,
+    203,
+    390,
+    349
+   ],
+   "tpl": [
+    "战斗.png"
+   ],
+   "thr": null,
+   "act": "Click",
+   "target": null,
+   "next": [
+    "开始对局",
+    "默认战斗"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  }
+ },
+ "千里开局.json": {
+  "初始战斗": {
+   "reco": "TemplateMatch",
+   "roi": [
+    433,
+    282,
+    29,
+    24
+   ],
+   "tpl": [
+    "战斗图2.png",
+    "战斗.png"
+   ],
+   "thr": null,
+   "act": "Click",
+   "target": null,
+   "next": [
+    "对局",
+    "初始战斗"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  },
+  "千里开局": {
+   "reco": "TemplateMatch",
+   "roi": [
+    1001,
+    573,
+    224,
+    86
+   ],
+   "tpl": [
+    "开始挑战.png"
+   ],
+   "thr": null,
+   "act": "Click",
+   "target": [
+    1056,
+    340,
+    107,
+    115
+   ],
+   "next": [
+    "自定义选将"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  },
+  "对局": {
+   "reco": "OCR",
+   "roi": [
+    379,
+    590,
+    183,
+    46
+   ],
+   "exp": [
+    "开始对局"
+   ],
+   "act": "Click",
+   "target": null,
+   "next": [
+    "临时战斗"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  },
+  "开始挑战": {
+   "reco": "OCR",
+   "roi": [
+    1023,
+    590,
+    178,
+    54
+   ],
+   "exp": [
+    "开始挑战"
+   ],
+   "act": "Click",
+   "target": null,
+   "next": [
+    "开始挑战",
+    "限制冲榜"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": 1000
+  },
+  "自定义选将": {
+   "reco": "OCR",
+   "roi": [
+    100,
+    506,
+    1107,
+    173
+   ],
+   "exp": [
+    "吕布"
+   ],
+   "act": "Click",
+   "target": null,
+   "next": [
+    "退出选将",
+    "自定义选将"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  },
+  "退出选将": {
+   "reco": "TemplateMatch",
+   "roi": [
+    1067,
+    335,
+    71,
+    57
+   ],
+   "tpl": [
+    "战役属性.png"
+   ],
+   "thr": null,
+   "act": "Click",
+   "target": [
+    463,
+    198,
+    509,
+    200
+   ],
+   "next": [
+    "开始挑战",
+    "退出选将"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  },
+  "限制冲榜": {
+   "reco": "DirectHit",
+   "act": "Custom",
+   "target": null,
+   "next": [
+    "初始战斗"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  }
+ },
+ "选择赠礼.json": {
+  "动态选择赠礼": {
+   "reco": "DirectHit(默认)",
+   "act": "Custom",
+   "target": null,
+   "next": [
+    "继续战斗",
+    "属性变化"
+   ],
+   "oe": [
+    "赠礼选择失败"
+   ],
+   "timeout": null,
+   "rate": null
+  },
+  "赠礼选择失败": {
+   "reco": "DirectHit(默认)",
+   "act": "Custom",
+   "target": null,
+   "next": [
+    "继续战斗"
+   ],
+   "oe": null,
+   "timeout": null,
+   "rate": null
+  },
+  "选择赠礼": {
+   "reco": "OCR",
+   "roi": [
+    570,
+    597,
+    135,
+    48
+   ],
+   "exp": [
+    "接受谁的"
+   ],
+   "act": null,
+   "target": null,
+   "next": [
+    "动态选择赠礼"
+   ],
+   "oe": [
+    "确认",
+    "选择赠礼"
+   ],
+   "timeout": null,
+   "rate": null
+  }
+ }
+}
