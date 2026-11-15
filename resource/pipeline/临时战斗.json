@@ -176,10 +176,10 @@
         "next": ["结算确定", "临时战斗"]
     },
     "结算确定": {
-        "recognition": {"type": "OCR", "param": {"roi": [520, 600, 260, 90], "expected": ["确定"]}},
+        "recognition": {"type": "OCR", "param": {"roi": [520, 550, 260, 140], "expected": ["确定"]}},
         "action": {"type": "Click"},
-        "post_delay": 1000,
-        "next": ["千里开局", "临时战斗"]
+        "post_delay": 1500,
+        "next": ["结算确定", "千里开局", "临时战斗"]
     },
     "重复确认": {
         "recognition": {
@@ -316,8 +316,6 @@
             "param": {
                 "custom_action": "SafeFallbackClick",
                 "custom_action_param": {
-                    "x": 960,
-                    "y": 180,
                     "interval": 18
                 }
             }
