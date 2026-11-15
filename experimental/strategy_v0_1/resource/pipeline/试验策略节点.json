@@ -5,7 +5,7 @@
       "type": "Custom",
       "param": { "custom_action": "trial_reset_run" }
     },
-    "next": ["选择赠礼", "千里开局"]
+    "next": ["领取奖励", "选择赠礼", "千里开局"]
   },
   "试验版巴清": {
     "recognition": {

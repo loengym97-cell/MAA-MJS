@@ -7,6 +7,31 @@ ROOT = Path(__file__).resolve().parents[3]
 
 
 class SettlementRoutingTest(unittest.TestCase):
+    def test_failure_reward_after_confirmation_is_reachable(self):
+        for path in (
+            ROOT / "resource/pipeline/策略by兔兔专属节点.json",
+            ROOT / "experimental/strategy_v0_1/resource/pipeline/试验策略节点.json",
+        ):
+            nodes = json.loads(path.read_text(encoding="utf-8"))
+            with self.subTest(path=path):
+                self.assertIn("领取奖励", nodes["试验版重置局状态"]["next"])
+
+        for path in (
+            ROOT / "resource/pipeline/策略by兔兔专属节点.json",
+            ROOT / "experimental/strategy_v0_1/resource/pipeline/试验版覆盖.json",
+        ):
+            nodes = json.loads(path.read_text(encoding="utf-8"))
+            for entry in ("策略by兔兔从主页开局", "策略by兔兔地图续打"):
+                with self.subTest(path=path, entry=entry):
+                    self.assertIn("领取奖励", nodes[entry]["next"])
+
+        reward = json.loads((ROOT / "resource/pipeline/临时战斗.json").read_text(encoding="utf-8"))["领取奖励"]
+        roi = reward["recognition"]["param"]["roi"]
+        # 18:56 的失败日志中，按钮文字位于 [581,615,114,26]。
+        self.assertTrue(roi[0] <= 581 and roi[1] <= 615 and roi[0] + roi[2] >= 695 and roi[1] + roi[3] >= 641)
+        self.assertEqual(reward["action"]["type"], "Click")
+        self.assertIn("千里开局", reward["next"])
+
     def test_gift_page_after_settlement_is_reachable(self):
         for path in (
             ROOT / "resource/pipeline/策略by兔兔专属节点.json",
