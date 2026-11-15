@@ -34,6 +34,7 @@ backup/
 
 # 本地完整打包产物（源码与资源分别提交）
 /MJS/MAA_MJS.zip
+/MJS/MAA-MJS-v*.zip
 
 # ===== git =====
 .git/
