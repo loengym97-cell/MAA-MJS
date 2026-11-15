@@ -1,4 +1,4 @@
-"""千里走单骑「策略by兔兔」（v1.4.2 正式版）。
+"""千里走单骑「策略by兔兔」（v1.4.5 正式版）。
 
 在主界面中与原策略共存；选择专用资源时叠加本目录的策略节点。
 目录名和节点名保留「试验版」仅为兼容既有入口。
@@ -69,6 +69,7 @@ SUPPORT_SCORE = {
     "萧何": 3, "鲁肃": 3, "曹丕": 3, "周勃": 3, "虞姬": 3,
     # 张骞＋孙权、刘彻＋周勃互相配合；先拿到其中一人才能凑齐组合。
     "张骞": 3, "孙权": 3, "刘彻": 3, "卫子夫": 3,
+    "乐毅": 3, "芈八子": 3,
 }
 FUNDING_SCORE = {"刘彻": 2, "陈阿娇": 2, "卫子夫": 2, "霍去病": 2}
 RELIC_ALIASES = {
@@ -195,6 +196,8 @@ def check_policy(catalog):
     assert choose_gift_kind("卫子夫", {"驰援", "资助"}, set()) == "驰援"
     assert choose_gift_kind("霍去病", {"信物", "资助"}, set()) == "资助"
     assert choose_gift_kind("霍去病", {"信物", "驰援"}, set()) == "信物"
+    assert choose_gift_kind("乐毅", {"驰援", "信物"}, set()) == "驰援"
+    assert choose_gift_kind("芈八子", {"驰援", "信物"}, set()) == "驰援"
     assert catalog["十常侍"] == "西园帐薄"
     assert catalog["吕布"] == "飞将翎"
     assert catalog["霍去病"] == "祭天金人"

@@ -11,6 +11,8 @@ SCRIPT = Path(__file__).resolve().parents[1] / "千里策略试验版.py"
 NAMESPACE = runpy.run_path(str(SCRIPT))
 TrialGift = NAMESPACE["TrialGift"]
 TrialState = NAMESPACE["TrialState"]
+choose_gift_kind = NAMESPACE["choose_gift_kind"]
+rank_people = NAMESPACE["rank_people"]
 
 
 def result(text, box=(500, 300, 80, 25)):
@@ -18,6 +20,13 @@ def result(text, box=(500, 300, 80, 25)):
 
 
 class GiftTransitionTest(unittest.TestCase):
+    def test_new_supports_are_selected_once(self):
+        for name in ("乐毅", "芈八子"):
+            with self.subTest(name=name):
+                self.assertEqual(choose_gift_kind(name, {"信物", "驰援"}, set()), "驰援")
+                self.assertEqual(rank_people(["未知武将", name], set(), set())[0], name)
+                self.assertEqual(rank_people([name, "曹丕"], set(), {name})[0], "曹丕")
+
     def run_with_frames(self, frames):
         frames = iter(frames)
         clicks = []
