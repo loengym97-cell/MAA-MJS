@@ -1,12 +1,14 @@
 """地图商人漏点时，只在仍能确认地图商人时重试最多十次。"""
 
 import runpy
+import json
 import unittest
 from pathlib import Path
 from types import SimpleNamespace
 from unittest.mock import patch
 
 
+ROOT = Path(__file__).resolve().parents[3]
 SCRIPT = Path(__file__).resolve().parents[1] / "千里策略试验版.py"
 NAMESPACE = runpy.run_path(str(SCRIPT))
 TrialShop = NAMESPACE["TrialShop"]
@@ -34,13 +36,15 @@ class FakeContext:
 class ShopEntryRetryTest(unittest.TestCase):
     def run_scenario(
         self, *, starts_in_shop=False, merchant_visible=True, map_visible=True,
-        retry_click_works=True,
+        retry_click_works=True, shop_visible_after_polls=None,
     ):
-        state = {"entered": starts_in_shop, "clicks": []}
+        state = {"entered": starts_in_shop, "clicks": [], "polls": 0}
         context = FakeContext(merchant_visible)
 
         def screen(_context):
-            return "shop" if state["entered"] else "map"
+            state["polls"] += 1
+            arrived = shop_visible_after_polls is not None and state["polls"] >= shop_visible_after_polls
+            return "shop" if state["entered"] or arrived else "map"
 
         def ocr(_context, image, roi=None):
             if image == "shop":
@@ -64,6 +68,21 @@ class ShopEntryRetryTest(unittest.TestCase):
         self.assertTrue(succeeded)
         self.assertEqual(clicks, [(716, 474, 41, 33)])
         self.assertTrue(template_calls)
+
+    def test_waits_for_slow_shop_transition_before_retrying(self):
+        succeeded, clicks, _ = self.run_scenario(shop_visible_after_polls=5)
+        self.assertTrue(succeeded)
+        self.assertEqual(clicks, [])
+
+    def test_task_entries_can_resume_open_shop(self):
+        for path in (
+            ROOT / "resource/pipeline/策略by兔兔专属节点.json",
+            ROOT / "experimental/strategy_v0_1/resource/pipeline/试验版覆盖.json",
+        ):
+            nodes = json.loads(path.read_text(encoding="utf-8"))
+            for entry in ("策略by兔兔从主页开局", "策略by兔兔地图续打"):
+                with self.subTest(path=path, entry=entry):
+                    self.assertIn("试验版商店页面", nodes[entry]["next"])
 
     def test_does_not_click_again_if_shop_is_already_open(self):
         succeeded, clicks, _ = self.run_scenario(starts_in_shop=True)

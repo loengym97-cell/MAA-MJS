@@ -1,4 +1,4 @@
-"""千里走单骑「策略by兔兔」（v1.4.5 正式版）。
+"""千里走单骑「策略by兔兔」（v1.4.6 正式版）。
 
 在主界面中与原策略共存；选择专用资源时叠加本目录的策略节点。
 目录名和节点名保留「试验版」仅为兼容既有入口。
@@ -555,7 +555,7 @@ class TrialShop(CustomAction):
             and not _find(results, "取消", x_min=650, x_max=950, y_min=420, y_max=590)
         )
 
-    def _wait_shop(self, context, checks=3):
+    def _wait_shop(self, context, checks=RETRY_LIMIT):
         for _ in range(checks):
             results = _ocr(context, _screen(context))
             if self._shop_ready(results):
